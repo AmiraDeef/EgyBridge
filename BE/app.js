@@ -6,7 +6,7 @@ const morgan=require("morgan");
 const authRoute=require('./routes/authRoute')
 const port=process.env.PORT
 const errorMiddleware =require('./middlewares/globalError')
-// const tripsRoutes=require("./routes/tripsRoute")
+const tripsRoutes=require("./routes/tripRoute")
 
 
 //activation
@@ -16,7 +16,7 @@ app.use(express.json());
 app.use(cors()) //----------------->to be continued
 app.use(morgan('dev'));
 app.use("/api/user",authRoute);
-// app.use("/",tripsRoutes);
+app.use("/api/user/trips",tripsRoutes);
 
 
 
