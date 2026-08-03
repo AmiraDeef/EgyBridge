@@ -18,7 +18,6 @@ const UserSchema=mongoose.Schema({
         type:String,
         required:true,
         
-
      }
      ,country:{
         type:String,

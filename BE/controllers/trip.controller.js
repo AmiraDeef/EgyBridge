@@ -4,7 +4,7 @@ const {
   updateTourValidation,
 } =require("./validations/tripValidation.js");
 
-export const createTour = async (req, res, next) => {
+const createTour = async (req, res, next) => {
   try {
     const { error, value } = createTourValidation.validate(req.body);
 
@@ -22,7 +22,7 @@ export const createTour = async (req, res, next) => {
   }
 };
 
-export const getAllTours = async (req, res, next) => {
+const getAllTours = async (req, res, next) => {
   try {
     const tours = await Tour.find().sort({ createdAt: -1 });
 
@@ -32,7 +32,7 @@ export const getAllTours = async (req, res, next) => {
   }
 };
 
-export const getTourById = async (req, res, next) => {
+const getTourById = async (req, res, next) => {
   try {
     const tour = await Tour.findById(req.params.id);
 
@@ -47,7 +47,7 @@ export const getTourById = async (req, res, next) => {
   }
 };
 
-export const updateTour = async (req, res, next) => {
+const updateTour = async (req, res, next) => {
   try {
     const { error, value } = updateTourValidation.validate(req.body);
 
@@ -75,7 +75,7 @@ export const updateTour = async (req, res, next) => {
   }
 };
 
-export const deleteTour = async (req, res, next) => {
+const deleteTour = async (req, res, next) => {
   try {
     const tour = await Tour.findByIdAndDelete(req.params.id);
 
@@ -90,4 +90,12 @@ export const deleteTour = async (req, res, next) => {
   } catch (err) {
     next(err);
   }
+};
+
+module.exports = {
+  createTour,
+  getAllTours,
+  getTourById,
+  updateTour,
+  deleteTour,
 };

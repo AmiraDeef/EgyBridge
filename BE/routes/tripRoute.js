@@ -1,5 +1,5 @@
 const express = require("express");
-
+const router = express.Router();
 const {
   createTour,
   getAllTours,
@@ -7,8 +7,8 @@ const {
   updateTour,
   deleteTour,
 }= require("../controllers/trip.controller");
-const authMiddleware=require("../middlewares/authMiddleware")
-const router = express.Router();
+const {authMiddleware}=require("../middlewares/authMiddleware")
+
 
 router.post("/", authMiddleware,createTour);
 
@@ -20,4 +20,4 @@ router.put("/:id", authMiddleware,updateTour);
 
 router.delete("/:id", authMiddleware,deleteTour);
 
-export default router;
+module.exports=router

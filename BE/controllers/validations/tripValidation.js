@@ -1,6 +1,6 @@
-import Joi from "joi";
+const Joi = require("joi");
 
-export const createTripSchema = Joi.object({
+const createTourValidation = Joi.object({
   title: Joi.string().trim().min(3).max(100).required(),
 
   location: Joi.string().trim().min(2).max(100).required(),
@@ -16,7 +16,7 @@ export const createTripSchema = Joi.object({
   featured: Joi.boolean().optional(),
 });
 
-export const updateTripSchema = Joi.object({
+const updateTourValidation = Joi.object({
   title: Joi.string().trim().min(3).max(100),
   location: Joi.string().trim().min(2).max(100),
   duration: Joi.string().trim(),
@@ -25,3 +25,8 @@ export const updateTripSchema = Joi.object({
   image: Joi.string().uri(),
   featured: Joi.boolean(),
 }).min(1);
+
+module.exports = {
+  createTourValidation,
+  updateTourValidation,
+};
