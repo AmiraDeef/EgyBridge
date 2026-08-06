@@ -13,7 +13,14 @@ const tripsRoutes=require("./routes/tripRoute")
 require("dotenv").config();
 const app=express();
 app.use(express.json());
-app.use(cors()) //----------------->to be continued
+app.use(
+  cors({
+    origin: 'http://localhost:5173', // Exact frontend origin (no trailing slash)
+    credentials: true,                // Allow cookies / authorization headers
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization'],
+  })
+); //----------------->to be continued
 app.use(morgan('dev'));
 app.use("/api/user",authRoute);
 app.use("/api/user/trips",tripsRoutes);
