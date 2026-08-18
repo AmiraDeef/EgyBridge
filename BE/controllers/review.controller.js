@@ -10,7 +10,7 @@ const createReview = async (req, res, next) => {
       return res.status(400).json({ message: error.details[0].message });
 
     const review = await Review.create({
-      user: req.user._id, // Populate from Auth middleware
+      user: req.userId, // set by authMiddleware
       trip: value.trip,
       rating: value.rating,
       comment: value.comment,
@@ -30,7 +30,7 @@ const getTripReviews = async (req, res, next) => {
     const { tripId } = req.params;
 
     const reviews = await Review.find({ trip: tripId })
-      .populate("user", "name avatar")
+      .populate("user", "fullName")
       .sort({ createdAt: -1 });
 
     res.json(reviews);

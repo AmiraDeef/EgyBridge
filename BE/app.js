@@ -7,6 +7,12 @@ const authRoute=require('./routes/authRoute')
 const port=process.env.PORT
 const errorMiddleware =require('./middlewares/globalError')
 const tripsRoutes=require("./routes/tripRoute")
+const bookingRoutes=require("./routes/bookingRoute")
+const reviewRoutes=require("./routes/reviewRoute")
+const emergencyRoutes=require("./routes/emergencyRoute")
+const tripPlanRoutes=require("./routes/tripPlanRoute")
+const placeRoutes=require("./routes/placeRoute")
+const externalServiceRoutes=require("./routes/externalServiceRoute")
 
 
 //activation
@@ -24,6 +30,12 @@ app.use(
 app.use(morgan('dev'));
 app.use("/api/user",authRoute);
 app.use("/api/user/trips",tripsRoutes);
+app.use("/api/user/bookings",bookingRoutes);
+app.use("/api/user/reviews",reviewRoutes);
+app.use("/api/user/emergency",emergencyRoutes);
+app.use("/api/user/trip-plans",tripPlanRoutes);
+app.use("/api/user/places",placeRoutes);
+app.use("/api/user/services",externalServiceRoutes);
 
 
 

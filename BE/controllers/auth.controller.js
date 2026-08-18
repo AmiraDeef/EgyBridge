@@ -17,7 +17,7 @@ const register = async (req, res,next) => {
         }
         console.log(value);
 
-        const { fullName, email, password, confirmPassword, phone, country } = value
+        const { fullName, email, password, phone, country } = value
         const user = await User.findOne({ email })
         if (user) {
             return res.status(400).json({
@@ -25,12 +25,7 @@ const register = async (req, res,next) => {
             })
         }
 
-        //compare pass and confirm pass
-        if (!password == confirmPassword) {
-            return res.status(400).json({
-                message: "password and confirmpassword doesnt match"
-            })
-        }
+        // confirmPassword equality is already enforced by Joi (valid(joi.ref('password')))
 
         const hashPass = await bcrypt.hash(password, 10)
 
@@ -69,11 +64,24 @@ const login = async (req, res,next) => {
                 message: "user not found"
             })
         }
-        const comPass = bcrypt.compare(password, existUser.password)
-        if (!comPass) return res.status(400).json({ message: "invliad password" })
-        const token = jwt.sign({ id: existUser._id }, process.env.JWT_SECRET, { expiresIn: '1d' })
+        const isMatch = await bcrypt.compare(password, existUser.password)
+        if (!isMatch) return res.status(400).json({ message: "invliad password" })
+        const token = jwt.sign(
+            { id: existUser._id, role: existUser.role },
+            process.env.JWT_SECRET,
+            { expiresIn: '1d' }
+        )
 
-        return res.status(200).json({ message: "login success", token })
+        return res.status(200).json({
+            message: "login success",
+            token,
+            user: {
+                id: existUser._id,
+                fullName: existUser.fullName,
+                email: existUser.email,
+                role: existUser.role,
+            },
+        })
 
 
     } catch (error) {
