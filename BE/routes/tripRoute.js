@@ -10,11 +10,11 @@ const {
 const {authMiddleware}=require("../middlewares/authMiddleware")
 
 
-router.post("/", authMiddleware,createTour);
+router.post("/", authMiddleware, createTour);
 
-router.get("/", authMiddleware,getAllTours);
+router.get("/", getAllTours);
 
-router.get("/:id", authMiddleware,getTourById);
+router.get("/:id", getTourById);
 
 router.put("/:id", authMiddleware,updateTour);
 
