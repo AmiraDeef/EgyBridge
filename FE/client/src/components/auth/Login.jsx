@@ -5,6 +5,7 @@ import FormInput from "./FormInput";
 import Notification from "./Notification";
 import { DividerWithText, GoogleButton } from "./SocialAuth";
 import { loginUser } from "../../api/authApi";
+import { useAuth } from "../../context/AuthContext";
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -19,8 +20,9 @@ function validate(values) {
   return errors;
 }
 
-export default function Login({ onSuccess, onSwitchToRegister }) {
+export default function Login({ onSuccess }) {
   const navigate = useNavigate();
+  const { setSession } = useAuth();
   const [values, setValues] = useState({ email: "", password: "" });
   const [errors, setErrors] = useState({});
   const [touched, setTouched] = useState({});
@@ -61,7 +63,19 @@ export default function Login({ onSuccess, onSwitchToRegister }) {
     }
 
     setBanner({ type: "success", message: "Welcome back! Redirecting you now…" });
-    onSuccess?.(data);
+
+    // Update React AuthContext state immediately
+    if (data?.token) {
+      setSession?.({ token: data.token, user: data.user });
+    }
+
+    if (onSuccess) {
+      onSuccess(data);
+    } else {
+      setTimeout(() => {
+        navigate("/my-trip", { replace: true });
+      }, 400);
+    }
   };
 
   return (
@@ -142,17 +156,16 @@ export default function Login({ onSuccess, onSwitchToRegister }) {
 
       <GoogleButton />
 
-  <p className="mt-8 text-center text-sm text-charcoal/60">
-  Don't have an account?{" "}
-  <button
-    type="button"
-    onClick={() => navigate("/register")}
-    className="font-semibold text-gold-dark hover:text-charcoal"
-  >
-    Create one
-  </button>
-</p>
+      <p className="mt-8 text-center text-sm text-charcoal/60">
+        Don't have an account?{" "}
+        <button
+          type="button"
+          onClick={() => navigate("/register")}
+          className="font-semibold text-gold-dark hover:text-charcoal"
+        >
+          Create one
+        </button>
+      </p>
     </div>
   );
 }
-

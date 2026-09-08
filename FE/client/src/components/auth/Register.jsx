@@ -13,7 +13,7 @@ function validate(values) {
   const errors = {};
 
   if (!values.fullName.trim()) errors.fullName = "Full name is required.";
-  else if (values.fullName.trim().length < 3) errors.fullName = "Name must be at least 3 characters.";
+  else if (values.fullName.trim().length < 10) errors.fullName = "Full name must be at least 10 characters.";
 
   if (!values.email.trim()) errors.email = "Email is required.";
   else if (!EMAIL_RE.test(values.email)) errors.email = "Enter a valid email address.";
@@ -34,7 +34,7 @@ function validate(values) {
 
 const initialValues = { fullName: "", email: "", country: "", phone: "", password: "", confirmPassword: "" };
 
-export default function Register({ onSuccess, onSwitchToLogin }) {
+export default function Register() {
   const navigate = useNavigate();
   const [values, setValues] = useState(initialValues);
   const [errors, setErrors] = useState({});
@@ -82,8 +82,8 @@ export default function Register({ onSuccess, onSwitchToLogin }) {
       return;
     }
 
-    setBanner({ type: "success", message: "Account created successfully! Taking you in…" });
-    onSuccess?.(data);
+    setBanner({ type: "success", message: "Account created successfully! Redirecting you to sign in…" });
+    setTimeout(() => navigate("/login"), 1200);
   };
 
   return (
@@ -109,7 +109,7 @@ export default function Register({ onSuccess, onSwitchToLogin }) {
           name="fullName"
           type="text"
           icon={User}
-          placeholder="Sara Ahmed"
+          placeholder="Engy"
           autoComplete="name"
           required
           value={values.fullName}
@@ -151,7 +151,7 @@ export default function Register({ onSuccess, onSwitchToLogin }) {
           name="phone"
           type="tel"
           icon={Phone}
-          placeholder="01064786924"
+          placeholder="01000000000"
           autoComplete="tel"
           required
           value={values.phone}

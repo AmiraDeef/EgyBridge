@@ -21,5 +21,5 @@ const makeUploader = (folder, resourceType = "auto") =>
 // Single-file uploaders used across routes
 const uploadEmergencyMedia = makeUploader("emergency", "auto").single("media");
 const uploadPlaceImage = makeUploader("places", "image").single("image");
-
-module.exports = { makeUploader, uploadEmergencyMedia, uploadPlaceImage };
+const uploadReviewMedia = makeUploader("reviews", "auto").single("media");
+module.exports = { makeUploader, uploadEmergencyMedia, uploadPlaceImage, uploadReviewMedia };

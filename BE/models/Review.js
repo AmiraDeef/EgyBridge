@@ -22,6 +22,7 @@ const reviewSchema = new mongoose.Schema(
       required: true,
       trim: true,
     },
+    media: [{ type: String }],
   },
   { timestamps: true }
 );

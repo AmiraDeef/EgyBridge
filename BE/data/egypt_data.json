@@ -1,0 +1,206 @@
+{
+  "country": "Egypt",
+  "governorates": [
+    {
+      "id": "cairo",
+      "name": "Cairo",
+      "region": "Greater Cairo",
+      "highlights": ["Giza Pyramids", "Grand Egyptian Museum", "Khan el-Khalili", "Egyptian Museum in Tahrir"],
+      "popular_food": "Koshary, Molokhia, Falafel",
+      "best_time_to_visit": "October to April"
+    },
+    {
+      "id": "giza",
+      "name": "Giza",
+      "region": "Greater Cairo",
+      "highlights": ["Giza Plateau", "Great Sphinx", "Saqqara Step Pyramid", "Dahshur Pyramids"],
+      "popular_food": "Grilled Meats, Fiteer Meshaltet",
+      "best_time_to_visit": "October to April"
+    },
+    {
+      "id": "qalyubia",
+      "name": "Qalyubia",
+      "region": "Greater Cairo",
+      "highlights": ["Qanatir el-Khayriya (Nile Barrages)", "Mohammed Ali Palace in Shubra"],
+      "best_time_to_visit": "All year"
+    },
+    {
+      "id": "alexandria",
+      "name": "Alexandria",
+      "region": "Alexandria & Delta",
+      "highlights": ["Bibliotheca Alexandrina", "Qaitbay Citadel", "Montaza Palace", "Pompey's Pillar"],
+      "popular_food": "Alexandrian Liver, Seafood, Kebda",
+      "best_time_to_visit": "May to October (Beach season) or Winter for sea breeze"
+    },
+    {
+      "id": "beheira",
+      "name": "Beheira",
+      "region": "Alexandria & Delta",
+      "highlights": ["Rosetta (Rashid - where Rosetta Stone was found)", "Deir al-Surian"],
+      "best_time_to_visit": "Autumn and Winter"
+    },
+    {
+      "id": "matrouh",
+      "name": "Matrouh",
+      "region": "North Coast & Western Desert",
+      "highlights": ["Siwa Oasis", "Ageeba Beach", "Rommel Museum", "Almaza Bay"],
+      "best_time_to_visit": "October to March for Siwa | June to September for Beaches"
+    },
+    {
+      "id": "port_said",
+      "name": "Port Said",
+      "region": "Canal Zone",
+      "highlights": ["Suez Canal Boardwalk", "Port Said Lighthouse", "Ferry Boat Trips"],
+      "popular_food": "Fresh Seafood",
+      "best_time_to_visit": "Autumn and Spring"
+    },
+    {
+      "id": "ismailia",
+      "name": "Ismailia",
+      "region": "Canal Zone",
+      "highlights": ["Timsah Lake", "Ismailia Museum", "De Lesseps House"],
+      "popular_food": "Mangoes, Seafood",
+      "best_time_to_visit": "Spring and Autumn"
+    },
+    {
+      "id": "suez",
+      "name": "Suez",
+      "region": "Canal Zone",
+      "highlights": ["Suez Canal", "Ataqa Mountains", "Ain Sokhna beaches (near borders)"],
+      "best_time_to_visit": "September to May"
+    },
+    {
+      "id": "luxor",
+      "name": "Luxor",
+      "region": "Upper Egypt",
+      "highlights": ["Karnak Temple", "Valley of the Kings", "Luxor Temple", "Hot Air Balloon"],
+      "popular_food": "Upper Egyptian Tagines, Sun-baked Bread",
+      "best_time_to_visit": "October to April"
+    },
+    {
+      "id": "aswan",
+      "name": "Aswan",
+      "region": "Upper Egypt & Nubia",
+      "highlights": ["Philae Temple", "Abu Simbel Temples", "Nubian Village", "Aswan High Dam"],
+      "popular_food": "Nubian Cuisine, Karkadeh (Hibiscus Tea)",
+      "best_time_to_visit": "November to March"
+    },
+    {
+      "id": "red_sea",
+      "name": "Red Sea (Hurghada)",
+      "region": "Red Sea Coast",
+      "highlights": ["Hurghada Marina", "Giftun Island", "El Gouna", "Marsa Alam Diving"],
+      "popular_activity": "Scuba Diving, Snorkeling, Desert Safari",
+      "best_time_to_visit": "All year round"
+    },
+    {
+      "id": "south_sinai",
+      "name": "South Sinai",
+      "region": "Sinai Peninsula",
+      "highlights": ["Sharm El Sheikh", "Dahab Blue Hole", "Saint Catherine's Monastery", "Mount Sinai"],
+      "popular_activity": "Mountain Trekking, Diving, Kitesurfing",
+      "best_time_to_visit": "All year round"
+    },
+    {
+      "id": "north_sinai",
+      "name": "North Sinai",
+      "region": "Sinai Peninsula",
+      "highlights": ["Arish Beaches", "Zaranik Protected Area"],
+      "best_time_to_visit": "Spring and Autumn"
+    },
+    {
+      "id": "faiyum",
+      "name": "Faiyum",
+      "region": "Northern Upper Egypt",
+      "highlights": ["Wadi El Rayan Waterfalls", "Wadi El Hitan (Whale Valley)", "Tunis Village"],
+      "popular_food": "Fiteer Meshaltet, Duck dishes",
+      "best_time_to_visit": "October to April"
+    },
+    {
+      "id": "beni_suef",
+      "name": "Beni Suef",
+      "region": "Upper Egypt",
+      "highlights": ["Meidum Pyramid", "Sannur Cave Protected Area"],
+      "best_time_to_visit": "Winter"
+    },
+    {
+      "id": "minya",
+      "name": "Minya",
+      "region": "Upper Egypt",
+      "highlights": ["Tell el-Amarna", "Beni Hasan Tombs", "Tuna el-Gebel"],
+      "best_time_to_visit": "October to April"
+    },
+    {
+      "id": "assiut",
+      "name": "Assiut",
+      "region": "Upper Egypt",
+      "highlights": ["Monastery of the Virgin Mary (Dronka)", "Meir Tombs"],
+      "best_time_to_visit": "Winter"
+    },
+    {
+      "id": "sohag",
+      "name": "Sohag",
+      "region": "Upper Egypt",
+      "highlights": ["Abydos Temple (Seti I)", "Red Monastery", "White Monastery"],
+      "best_time_to_visit": "October to March"
+    },
+    {
+      "id": "qena",
+      "name": "Qena",
+      "region": "Upper Egypt",
+      "highlights": ["Dendera Temple Complex", "Sidi Abdel Raheem Mosque"],
+      "best_time_to_visit": "October to March"
+    },
+    {
+      "id": "new_valley",
+      "name": "New Valley (El Kharga)",
+      "region": "Western Desert",
+      "highlights": ["Kharga Oasis", "Dakhla Oasis", "Farafra White Desert", "Hibis Temple"],
+      "best_time_to_visit": "October to March"
+    },
+    {
+      "id": "dakahlia",
+      "name": "Dakahlia",
+      "region": "Nile Delta",
+      "highlights": ["Mansoura City", "Ibn Luqman House", "Gamasa Beach"],
+      "best_time_to_visit": "Spring and Summer"
+    },
+    {
+      "id": "gharbia",
+      "name": "Gharbia",
+      "region": "Nile Delta",
+      "highlights": ["El Tanta Sayid El Bedawi Mosque", "Mahalla el-Kubra Textiles"],
+      "popular_food": "Tanta Sweet Delights (Heshwa & Meshabbak)",
+      "best_time_to_visit": "All year"
+    },
+    {
+      "id": "monufia",
+      "name": "Monufia",
+      "region": "Nile Delta",
+      "highlights": ["Denchway Museum", "Sadat City Eco-tours"],
+      "best_time_to_visit": "Autumn and Spring"
+    },
+    {
+      "id": "sharqia",
+      "name": "Sharqia",
+      "region": "Nile Delta",
+      "highlights": ["Tell Basta Archaeological Site", "Tanis (San el-Hagar)", "Arabian Horse Festival"],
+      "best_time_to_visit": "Autumn and Winter"
+    },
+    {
+      "id": "kafr_el_sheikh",
+      "name": "Kafr El Sheikh",
+      "region": "Nile Delta",
+      "highlights": ["Desouk Ibrahim El-Desouki Mosque", "Lake Burullus Nature Reserve"],
+      "best_time_to_visit": "Spring and Autumn"
+    },
+    {
+      "id": "damietta",
+      "name": "Damietta",
+      "region": "Nile Delta Coast",
+      "highlights": ["Ras El Bar (Where Nile meets the Mediterranean)", "Damietta Furniture Bazaar"],
+      "popular_food": "Damietta Cheese, Meshabbak, Seafood",
+      "best_time_to_visit": "Summer for Ras El Bar, all year for shopping"
+    }
+  ]
+}
