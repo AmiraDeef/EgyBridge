@@ -74,7 +74,7 @@ export default function TourGuideChat() {
     setLoading(true);
 
     try {
-      const res = await fetch("http://localhost:8000/api/user/chat", {
+      const res = await fetch("https://egy-backend.vercel.app/api/user/chat", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ message: text, userName }),

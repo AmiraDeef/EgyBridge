@@ -101,7 +101,7 @@ export default function TripReviews({ tripId }) {
     if (item.startsWith("http://") || item.startsWith("https://")) {
       return item;
     }
-    return `http://localhost:8000/${item.replace(/\\/g, "/")}`;
+    return `https://egy-backend.vercel.app/${item.replace(/\\/g, "/")}`;
   };
 
   return (

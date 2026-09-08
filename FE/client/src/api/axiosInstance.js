@@ -7,7 +7,7 @@ import axios from "axios";
 // Vite exposes env vars via import.meta.env.VITE_* (not process.env — that's
 // a Create React App convention and is undefined in a Vite build). Set
 // VITE_API_URL in a .env file at the FE project root; see .env.example.
-const baseURL = import.meta.env.VITE_API_URL || "http://localhost:8000/api/user";
+const baseURL = import.meta.env.VITE_API_URL || "https://egy-backend.vercel.app/api/user";
 
 export const TOKEN_STORAGE_KEY = "egi_rise_token";
 export const USER_STORAGE_KEY = "egi_rise_user";

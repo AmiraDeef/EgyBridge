@@ -20,7 +20,7 @@ import Footer from "../components/layout/Footer";
 import { useApi } from "../hooks/useApi";
 import AsyncState from "../components/common/AsyncState";
 import { getAllTrips } from "../api/tripsApi";
-import pyramidsHero from "../assets/homePic.jpg";
+import pyramidsHero from "../assets/hero2.png";
 import characterImg from "../assets/character.png";
 
 const QUICK_ACTIONS = [
