@@ -9,7 +9,7 @@ const reviewSchema = new mongoose.Schema(
     trip: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "Trip",
-      required: true,
+      required: false, // optional — general reviews may not be linked to a specific trip
     },
     rating: {
       type: Number,

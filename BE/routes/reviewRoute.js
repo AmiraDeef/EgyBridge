@@ -8,7 +8,7 @@ const {
 const { uploadReviewMedia } = require("../middlewares/upload");
 const { authMiddleware } = require("../middlewares/authMiddleware");
 
-router.post("/", authMiddleware,uploadReviewMedia, createReview);
+router.post("/", authMiddleware, uploadReviewMedia, createReview);
+router.get("/", getAllReviews);          // must be before /:tripId
 router.get("/:tripId", getTripReviews); // public — no auth needed to read reviews
-router.get("/", getAllReviews);
 module.exports = router;

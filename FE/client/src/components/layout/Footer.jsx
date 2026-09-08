@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { Facebook, Instagram, Twitter, Youtube, AlertTriangle, Globe } from "lucide-react";
 
 const COLUMNS = [
@@ -84,12 +85,13 @@ export default function Footer() {
             <p className="mt-0.5 max-w-[220px] text-xs text-cream/50">
               Get help in case of any emergency
             </p>
-            <button
-              type="button"
-              className="mt-3 rounded-full bg-gold px-4 py-1.5 text-xs font-semibold text-ink-soft transition-colors hover:bg-gold-light"
+            {/* التعديل هنا: تحويل الزر إلى Link ليوجه إلى /emergency */}
+            <Link
+              to="/emergency"
+              className="mt-3 inline-block rounded-full bg-gold px-4 py-1.5 text-xs font-semibold text-ink-soft transition-colors hover:bg-gold-light"
             >
               Open SOS
-            </button>
+            </Link>
           </div>
         </div>
       </div>

@@ -1,21 +1,29 @@
 import api, { extractErrorMessage } from "./axiosInstance";
 // POST /api/user/reviews — auth required
-export async function createReview({ trip, rating, comment, mediaFile }) {
+// Accepts either a pre-built FormData (from TripReviews.jsx) or a plain object.
+export async function createReview(formDataOrFields) {
   try {
-    const formData = new FormData();
-    formData.append("trip", trip);
-    formData.append("rating", rating);
-    formData.append("comment", comment);
-    
-    // ➕ لو فيه ملف مختار بنضيفه للـ FormData بنفس اسم الحقل اللي في Multer ("media")
-    if (mediaFile) {
-      formData.append("media", mediaFile);
+    let formData;
+    if (formDataOrFields instanceof FormData) {
+      // Caller already built the FormData (e.g. TripReviews.jsx) — use it directly
+      formData = formDataOrFields;
+    } else {
+      // Legacy plain-object call path — build FormData here
+      const { trip, rating, comment, mediaFile } = formDataOrFields;
+      formData = new FormData();
+      // Only append trip when it's a valid 24-char hex ObjectId
+      if (trip && /^[0-9a-fA-F]{24}$/.test(trip)) {
+        formData.append("trip", trip);
+      }
+      formData.append("rating", rating);
+      formData.append("comment", comment);
+      if (mediaFile) {
+        formData.append("media", mediaFile);
+      }
     }
 
     const { data } = await api.post("/reviews", formData, {
-      headers: {
-        "Content-Type": "multipart/form-data",
-      },
+      headers: { "Content-Type": "multipart/form-data" },
     });
 
     return { data };
