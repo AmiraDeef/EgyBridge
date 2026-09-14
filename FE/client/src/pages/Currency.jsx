@@ -8,14 +8,20 @@ export default function Currency() {
   const RATE = 48.5; // سعر تقريبي للدولار مقابل الجنيه المصري
 
   return (
-    <div className="min-h-screen bg-white font-body bg-[#FAF6ED]">
+    <div className="min-h-dvh bg-white font-body bg-[#FAF6ED]">
       <SiteNavbar />
       <main className="mx-auto max-w-xl px-6 py-10  bg-[#FAF6ED]">
-        <h1 className="text-3xl font-bold text-black text-center">Currency Converter</h1>
-        <p className="mt-2 text-center text-[#4C4546]">Convert USD / EUR to Egyptian Pound (EGP).</p>
+        <h1 className="text-3xl font-bold text-black text-center">
+          Currency Converter
+        </h1>
+        <p className="mt-2 text-center text-[#4C4546]">
+          Convert USD / EUR to Egyptian Pound (EGP).
+        </p>
 
         <div className="mt-8 rounded-2xl bg-[#EDE0C9] p-8 text-center">
-          <label className="text-xs font-bold text-[#846B20]">Amount in USD ($)</label>
+          <label className="text-xs font-bold text-[#846B20]">
+            Amount in USD ($)
+          </label>
           <input
             type="number"
             value={amount}
@@ -29,11 +35,15 @@ export default function Currency() {
             </div>
           </div>
 
-          <label className="text-xs font-bold text-[#846B20]">Equivalent in Egyptian Pound (EGP)</label>
+          <label className="text-xs font-bold text-[#846B20]">
+            Equivalent in Egyptian Pound (EGP)
+          </label>
           <div className="mt-2 text-3xl font-bold text-[#4F3B00]">
             {(amount * RATE).toFixed(2)} EGP
           </div>
-          <p className="mt-2 text-xs text-gray-500">1 USD = {RATE} EGP (Approximate market rate)</p>
+          <p className="mt-2 text-xs text-gray-500">
+            1 USD = {RATE} EGP (Approximate market rate)
+          </p>
         </div>
       </main>
       <Footer />

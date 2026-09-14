@@ -14,7 +14,7 @@ export default function PlanningStep3Places() {
   const [error, setError] = useState(null);
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedDestinations, setSelectedDestinations] = useState(
-    draft?.selectedDestinations || []
+    draft?.selectedDestinations || [],
   );
 
   // جلب الرحلات باستخدام getAllTrips
@@ -27,12 +27,17 @@ export default function PlanningStep3Places() {
         setError(apiError);
       } else if (data) {
         // تحويل البيانات المستلمة لتوحيد بناء الأوبجكت للواجهة
-        const formatted = (Array.isArray(data) ? data : data.trips || []).map((item) => ({
-          id: item._id,
-          title: item.title || item.location,
-          subtitle: item.description || item.location,
-          image: item.image || (item.images && item.images[0]) || "https://images.unsplash.com/photo-1572252009286-268acec5ca0a?auto=format&fit=crop&w=800&q=80",
-        }));
+        const formatted = (Array.isArray(data) ? data : data.trips || []).map(
+          (item) => ({
+            id: item._id,
+            title: item.title || item.location,
+            subtitle: item.description || item.location,
+            image:
+              item.image ||
+              (item.images && item.images[0]) ||
+              "https://images.unsplash.com/photo-1572252009286-268acec5ca0a?auto=format&fit=crop&w=800&q=80",
+          }),
+        );
         setDestinations(formatted);
       }
       setLoading(false);
@@ -43,7 +48,7 @@ export default function PlanningStep3Places() {
 
   const toggleDestination = (id) => {
     setSelectedDestinations((prev) =>
-      prev.includes(id) ? prev.filter((item) => item !== id) : [...prev, id]
+      prev.includes(id) ? prev.filter((item) => item !== id) : [...prev, id],
     );
   };
 
@@ -59,11 +64,11 @@ export default function PlanningStep3Places() {
   const filteredDestinations = destinations.filter(
     (item) =>
       item.title?.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      item.subtitle?.toLowerCase().includes(searchQuery.toLowerCase())
+      item.subtitle?.toLowerCase().includes(searchQuery.toLowerCase()),
   );
 
   return (
-    <div className="min-h-screen bg-[#FAF6ED] font-sans text-[#1A1A1A] pb-24">
+    <div className="min-h-dvh bg-[#FAF6ED] font-sans text-[#1A1A1A] pb-24">
       <SiteNavbar />
 
       <main className="mx-auto max-w-4xl px-6 py-8">

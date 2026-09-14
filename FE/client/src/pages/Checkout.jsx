@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { 
-  CreditCard, 
-  Wallet, 
-  ShieldCheck, 
-  ArrowRight, 
-  Hotel, 
-  Plane, 
-  Shield 
+import {
+  CreditCard,
+  Wallet,
+  ShieldCheck,
+  ArrowRight,
+  Hotel,
+  Plane,
+  Shield,
 } from "lucide-react";
 import ServiceHeader from "../components/layout/ServiceHeader";
 import characterImg from "../assets/serCharacter.png";
@@ -15,7 +15,7 @@ import characterImg from "../assets/serCharacter.png";
 export default function Checkout() {
   const navigate = useNavigate();
   const [paymentMethod, setPaymentMethod] = useState("card");
-  
+
   const [cardNumber, setCardNumber] = useState("");
   const [expiry, setExpiry] = useState("");
   const [cvv, setCvv] = useState("");
@@ -28,15 +28,13 @@ export default function Checkout() {
   };
 
   return (
-    <div className="min-h-screen bg-[#F7F4EB] font-body text-[#3B2F11] flex flex-col justify-between overflow-x-hidden">
-      
+    <div className="min-h-dvh bg-[#F7F4EB] font-body text-[#3B2F11] flex flex-col justify-between overflow-x-hidden">
       {/* 1. Header الموحد */}
       <ServiceHeader title="CHECKOUT" backPath="/services" />
 
       {/* 2. Main Content Area */}
       <main className="relative mx-auto w-full max-w-5xl px-4 py-8 sm:px-8 flex-1 flex items-center justify-center bg-[#FAF6ED]">
         <div className="relative flex w-full flex-col lg:flex-row items-center lg:items-center justify-center">
-          
           {/* Character Image */}
           <div className="z-20 w-64 flex-shrink-0 lg:w-64 lg:-mr-13 pointer-events-none mb-6 lg:mb-0">
             <img
@@ -49,7 +47,6 @@ export default function Checkout() {
           {/* Main Card */}
           <div className="relative z-10 w-full max-w-3xl rounded-3xl border-2 border-[#D9C89E] bg-[#EAE2CA] p-6 sm:p-8 shadow-2xl flex flex-col justify-between min-h-[420px]">
             <div className="grid grid-cols-1 gap-8 lg:grid-cols-12">
-              
               {/* Left Column: Summary */}
               <div className="lg:col-span-5 flex flex-col justify-between pr-0 lg:pr-4">
                 <div>
@@ -94,8 +91,12 @@ export default function Checkout() {
                 </div>
 
                 <div className="mt-8 border-t border-[#D4C49E] pt-4 flex items-center justify-between">
-                  <span className="text-xl font-black text-[#524016]">Total</span>
-                  <span className="text-2xl font-black text-[#B5871D]">$390</span>
+                  <span className="text-xl font-black text-[#524016]">
+                    Total
+                  </span>
+                  <span className="text-2xl font-black text-[#B5871D]">
+                    $390
+                  </span>
                 </div>
               </div>
 

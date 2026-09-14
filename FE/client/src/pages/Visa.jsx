@@ -18,7 +18,7 @@ export default function Visa() {
   const [selectedCountry, setSelectedCountry] = useState("");
 
   return (
-    <div className="min-h-screen bg-[#FDFBF7] font-body text-[#211D18] flex flex-col justify-between">
+    <div className="min-h-dvh bg-[#FDFBF7] font-body text-[#211D18] flex flex-col justify-between">
       {/* Top pill nav */}
       <header className="mx-auto w-full max-w-6xl px-6 pt-6 sm:px-10">
         <nav className="flex items-center justify-between rounded-full border border-[#524016]/30 bg-[#FDFBF7] px-6 py-2.5 shadow-sm">
@@ -79,7 +79,6 @@ export default function Visa() {
       {/* Main Content Container */}
       <main className="mx-auto flex w-full max-w-6xl flex-1 flex-col items-center justify-center px-6 py-10 sm:px-10">
         <div className="relative flex w-full max-w-4xl flex-col items-center gap-0 lg:flex-row lg:items-center">
-          
           {/* Character Illustration */}
           <div className="z-10 -mb-12 w-64 flex-shrink-0 lg:-mr-13 lg:mb-0 lg:w-64">
             <img
@@ -131,7 +130,9 @@ export default function Visa() {
               {/* Info Box */}
               <div className="rounded-xl border border-[#BF9F41]/40 bg-[#ECDFB4]/80 p-4 space-y-3 text-xs">
                 <div className="flex items-center justify-between border-b border-[#BF9F41]/30 pb-2.5">
-                  <span className="font-semibold text-[#544629]">Visa Requirement</span>
+                  <span className="font-semibold text-[#544629]">
+                    Visa Requirement
+                  </span>
                   <span className="flex items-center gap-1 font-bold text-[#9e5d28]">
                     <CheckCircle2 className="h-3.5 w-3.5" />
                     Visa required
@@ -139,7 +140,9 @@ export default function Visa() {
                 </div>
 
                 <div className="flex items-center justify-between border-b border-[#BF9F41]/30 pb-2.5">
-                  <span className="font-semibold text-[#544629]">Required Documents</span>
+                  <span className="font-semibold text-[#544629]">
+                    Required Documents
+                  </span>
                   <button
                     type="button"
                     className="font-semibold text-[#211D18] hover:underline"
@@ -149,7 +152,9 @@ export default function Visa() {
                 </div>
 
                 <div className="flex items-center justify-between pt-1">
-                  <span className="font-semibold text-[#544629]">Application</span>
+                  <span className="font-semibold text-[#544629]">
+                    Application
+                  </span>
                   <a
                     href="https://visa2egypt.gov.eg"
                     target="_blank"
@@ -176,7 +181,6 @@ export default function Visa() {
               </div>
             </div>
           </div>
-
         </div>
       </main>
     </div>

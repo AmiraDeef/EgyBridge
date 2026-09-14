@@ -12,11 +12,13 @@ import Footer from "../components/layout/Footer";
  */
 export default function ComingSoon({ title = "Coming soon" }) {
   return (
-    <div className="flex min-h-screen flex-col bg-cream font-body">
+    <div className="flex min-h-dvh flex-col bg-cream font-body">
       <SiteNavbar />
       <main className="flex flex-1 flex-col items-center justify-center px-6 py-24 text-center">
         <Construction className="h-8 w-8 text-gold" />
-        <h1 className="mt-4 font-display text-2xl font-semibold text-ink">{title}</h1>
+        <h1 className="mt-4 font-display text-2xl font-semibold text-ink">
+          {title}
+        </h1>
         <p className="mt-2 max-w-sm text-sm text-ink/55">
           This page isn't built yet — it's on the list.
         </p>

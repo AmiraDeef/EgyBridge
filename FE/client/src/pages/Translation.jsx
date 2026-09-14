@@ -31,8 +31,8 @@ export default function Translation() {
       try {
         const res = await fetch(
           `https://api.mymemory.translated.net/get?q=${encodeURIComponent(
-            text
-          )}&langpair=${src}|${tgt}`
+            text,
+          )}&langpair=${src}|${tgt}`,
         );
         const data = await res.json();
         if (data?.responseData?.translatedText) {
@@ -44,7 +44,7 @@ export default function Translation() {
         setLoading(false);
       }
     },
-    [inputText, sourceLang, targetLang]
+    [inputText, sourceLang, targetLang],
   );
 
   // ترجمة تلقائية فور الكتابة مع تأخير بسيط
@@ -85,7 +85,7 @@ export default function Translation() {
   };
 
   return (
-    <div className="min-h-screen bg-[#FAF6ED] font-body flex flex-col justify-between">
+    <div className="min-h-dvh bg-[#FAF6ED] font-body flex flex-col justify-between">
       <SiteNavbar />
 
       <main className="mx-auto w-full max-w-4xl px-4 py-8 flex-1 flex flex-col items-center justify-center">
@@ -101,7 +101,6 @@ export default function Translation() {
 
         {/* Translation Container */}
         <div className="relative flex w-full flex-col lg:flex-row items-center justify-center">
-          
           {/* Character Image (تم تصغير الحجم وضبط الارتفاع) */}
           <div className="z-20 w-48 sm:w-56 lg:w-64 lg:-mr-6 pointer-events-none -mb-7 lg:mb-0">
             <img
@@ -113,7 +112,6 @@ export default function Translation() {
 
           {/* Main Card */}
           <div className="relative z-10 w-full max-w-xl rounded-3xl border border-[#D8CBB5] bg-[#EFE8D8] p-6 shadow-sm">
-            
             {/* Language Selector Bar */}
             <div className="mb-4 grid grid-cols-2 gap-4 px-2 text-sm font-bold text-[#3B2D0C]">
               <div className="relative flex items-center justify-between">
@@ -149,7 +147,6 @@ export default function Translation() {
 
             {/* Input & Output Box */}
             <div className="relative grid grid-cols-1 gap-2 rounded-2xl bg-[#E2D6C1] p-3 sm:grid-cols-2">
-              
               {/* Source Input */}
               <div className="relative flex flex-col justify-between rounded-xl bg-[#E2D6C1] p-2.5 min-h-[140px]">
                 <textarea
@@ -159,7 +156,11 @@ export default function Translation() {
                   placeholder="Type here..."
                 />
                 <div className="flex items-center gap-3 text-[#8C6D23] pt-2">
-                  <button onClick={() => setInputText("")} title="Clear" type="button">
+                  <button
+                    onClick={() => setInputText("")}
+                    title="Clear"
+                    type="button"
+                  >
                     <X className="h-4 w-4 hover:opacity-70 transition" />
                   </button>
                   <button

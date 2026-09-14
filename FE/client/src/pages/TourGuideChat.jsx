@@ -44,7 +44,10 @@ export default function TourGuideChat() {
       id: 1,
       sender: "bot",
       text: `Welcome ${userName}! I am your AI Tourist Guide for Egypt. How can I assist you with your itinerary today?`,
-      time: new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }),
+      time: new Date().toLocaleTimeString([], {
+        hour: "2-digit",
+        minute: "2-digit",
+      }),
     },
   ]);
   const [input, setInput] = useState("");
@@ -100,7 +103,10 @@ export default function TourGuideChat() {
           id: Date.now() + 1,
           sender: "bot",
           text: "I am having trouble connecting to the server right now.",
-          time: new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }),
+          time: new Date().toLocaleTimeString([], {
+            hour: "2-digit",
+            minute: "2-digit",
+          }),
         },
       ]);
     } finally {
@@ -109,7 +115,7 @@ export default function TourGuideChat() {
   };
 
   return (
-    <div className="min-h-screen bg-[#FAF6ED] font-body flex flex-col justify-between">
+    <div className="min-h-dvh bg-[#FAF6ED] font-body flex flex-col justify-between">
       <div className="sticky top-0 z-50 w-full bg-[#FAF6ED]/95 backdrop-blur-md border-b border-[#EDE0C9]">
         <SiteNavbar />
       </div>
@@ -144,7 +150,9 @@ export default function TourGuideChat() {
                       <ShieldCheck className="h-3 w-3" /> Active User
                     </span>
                   </h3>
-                  <p className="text-xs text-[#736348]">EGI RISE Traveler Member</p>
+                  <p className="text-xs text-[#736348]">
+                    EGI RISE Traveler Member
+                  </p>
                 </div>
               </div>
             </div>
@@ -164,10 +172,14 @@ export default function TourGuideChat() {
                         : "bg-[#EFE9DC] text-[#3B2F1E] rounded-bl-none border border-[#DCD3C1]"
                     }`}
                   >
-                    <p className="whitespace-pre-wrap leading-relaxed">{msg.text}</p>
+                    <p className="whitespace-pre-wrap leading-relaxed">
+                      {msg.text}
+                    </p>
                     <span
                       className={`mt-1 block text-[10px] text-right ${
-                        msg.sender === "user" ? "text-white/70" : "text-[#736348]"
+                        msg.sender === "user"
+                          ? "text-white/70"
+                          : "text-[#736348]"
                       }`}
                     >
                       {msg.time}
@@ -176,7 +188,9 @@ export default function TourGuideChat() {
                 </div>
               ))}
               {loading && (
-                <div className="text-xs text-[#736348] italic">AI Assistant is typing...</div>
+                <div className="text-xs text-[#736348] italic">
+                  AI Assistant is typing...
+                </div>
               )}
               <div ref={messagesEndRef} />
             </div>
@@ -220,7 +234,9 @@ export default function TourGuideChat() {
                 <span className="text-[11px] font-bold uppercase tracking-wider text-[#BD8C1A]">
                   Capital of Civilizations
                 </span>
-                <h2 className="text-xl font-bold text-[#3B2F1E]">Luxor Governorate</h2>
+                <h2 className="text-xl font-bold text-[#3B2F1E]">
+                  Luxor Governorate
+                </h2>
                 <p className="mt-1 text-xs text-[#736348]">
                   Ancient Thebes - The world's largest open-air museum.
                 </p>
@@ -242,13 +258,15 @@ export default function TourGuideChat() {
               <div className="space-y-2 border-t border-[#DCD3C1] pt-3 text-xs">
                 <div className="flex items-center justify-between text-[#3B2F1E]">
                   <span className="flex items-center gap-1.5 font-semibold">
-                    <Clock className="h-3.5 w-3.5 text-[#BD8C1A]" /> Karnak Temple
+                    <Clock className="h-3.5 w-3.5 text-[#BD8C1A]" /> Karnak
+                    Temple
                   </span>
                   <span>06:00 AM - 08:00 PM</span>
                 </div>
                 <div className="flex items-center justify-between text-[#3B2F1E]">
                   <span className="flex items-center gap-1.5 font-semibold">
-                    <Building2 className="h-3.5 w-3.5 text-[#BD8C1A]" /> Valley of Kings
+                    <Building2 className="h-3.5 w-3.5 text-[#BD8C1A]" /> Valley
+                    of Kings
                   </span>
                   <span>06:00 AM - 05:00 PM</span>
                 </div>

@@ -80,7 +80,7 @@ export default function MyTrip() {
   const [activeView, setActiveView] = useState("itinerary");
   const [showAllDays, setShowAllDays] = useState(false);
   const [downloadingPdf, setDownloadingPdf] = useState(false);
-  
+
   // حالات إلغاء الحجز والـ Modal
   const [cancelBookingId, setCancelBookingId] = useState(null);
   const [isCanceling, setIsCanceling] = useState(false);
@@ -102,12 +102,14 @@ export default function MyTrip() {
   const currentTrip = rawData?.data || rawData || null;
 
   // التحقق من وجود رحلة فعلية أم لا
-  const hasTrip = currentTrip && (
-    (Array.isArray(currentTrip.itinerary) && currentTrip.itinerary.length > 0) ||
-    (Array.isArray(currentTrip.days) && currentTrip.days.length > 0) ||
-    (Array.isArray(currentTrip.tripPlan) && currentTrip.tripPlan.length > 0) ||
-    currentTrip.title
-  );
+  const hasTrip =
+    currentTrip &&
+    ((Array.isArray(currentTrip.itinerary) &&
+      currentTrip.itinerary.length > 0) ||
+      (Array.isArray(currentTrip.days) && currentTrip.days.length > 0) ||
+      (Array.isArray(currentTrip.tripPlan) &&
+        currentTrip.tripPlan.length > 0) ||
+      currentTrip.title);
 
   // استخراج أراي برنامج الرحلة إن وجدت
   const itinerary = hasTrip
@@ -117,7 +119,9 @@ export default function MyTrip() {
   const visibleDays = showAllDays ? itinerary : itinerary.slice(0, 3);
 
   const destinations =
-    hasTrip && Array.isArray(currentTrip.destinations) && currentTrip.destinations.length > 0
+    hasTrip &&
+    Array.isArray(currentTrip.destinations) &&
+    currentTrip.destinations.length > 0
       ? currentTrip.destinations
       : ["Egypt Journey"];
 
@@ -149,23 +153,25 @@ export default function MyTrip() {
       }
       setCancelBookingId(null);
     }
-    
+
     setIsCanceling(false);
   };
 
   if (tripLoading) {
     return (
-      <div className="flex min-h-screen items-center justify-center bg-[#FAF6ED] font-body text-[#302711]">
+      <div className="flex min-h-dvh items-center justify-center bg-[#FAF6ED] font-body text-[#302711]">
         <div className="flex flex-col items-center gap-2">
           <Loader2 className="h-8 w-8 animate-spin text-[#5a4600]" />
-          <p className="text-xs font-semibold text-[#705e35]">Loading your journey...</p>
+          <p className="text-xs font-semibold text-[#705e35]">
+            Loading your journey...
+          </p>
         </div>
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-[#FAF6ED] font-body text-[#302711]">
+    <div className="min-h-dvh bg-[#FAF6ED] font-body text-[#302711]">
       <SiteNavbar variant="my-trip" />
       <main className="bg-[#FAF6ED]">
         {/* Banner Section */}
@@ -179,17 +185,24 @@ export default function MyTrip() {
           <div className="relative mx-auto flex h-full max-w-[850px] flex-col justify-end px-5 pb-6 text-white">
             <h1 className="font-display text-[28px] font-bold capitalize leading-none sm:text-[32px]">
               {hasTrip
-                ? currentTrip.title || `${user?.fullName ? user.fullName.split(" ")[0] + "'s" : "Your"} Egypt Journey`
+                ? currentTrip.title ||
+                  `${user?.fullName ? user.fullName.split(" ")[0] + "'s" : "Your"} Egypt Journey`
                 : `${user?.fullName ? user.fullName.split(" ")[0] + "'s" : "Your"} Egypt Journey`}
             </h1>
             <div className="mt-2.5 flex items-center gap-1.5 text-[12px] leading-none text-white/90">
               <MapPin className="h-[13px] w-[13px]" />
-              <span className="capitalize">{hasTrip ? destinations.join(" · ") : "No active itinerary"}</span>
+              <span className="capitalize">
+                {hasTrip ? destinations.join(" · ") : "No active itinerary"}
+              </span>
               {hasTrip && (
                 <>
                   <span className="mx-1 text-white/55">|</span>
                   <CalendarDays className="h-[13px] w-[13px]" />
-                  <span>{currentTrip.duration ? `${currentTrip.duration} Days` : `${itinerary.length} Days`}</span>
+                  <span>
+                    {currentTrip.duration
+                      ? `${currentTrip.duration} Days`
+                      : `${itinerary.length} Days`}
+                  </span>
                 </>
               )}
             </div>
@@ -217,7 +230,9 @@ export default function MyTrip() {
                         ?.scrollIntoView({ behavior: "smooth" });
                   }}
                   className={`flex h-[98px] flex-col items-center justify-center rounded-[8px] border border-[#b5a37b] bg-white text-[16px] font-semibold text-[#4f3c04] shadow-[0_4px_10px_rgba(69,50,0,0.03)] transition-colors hover:bg-[#fffcf1] ${
-                    !hasTrip && key === "offline" ? "opacity-50 cursor-not-allowed" : ""
+                    !hasTrip && key === "offline"
+                      ? "opacity-50 cursor-not-allowed"
+                      : ""
                   }`}
                 >
                   <span
@@ -229,7 +244,7 @@ export default function MyTrip() {
                     ? "Offline Pack"
                     : key[0].toUpperCase() + key.slice(1)}
                 </button>
-              )
+              ),
             )}
           </div>
 
@@ -243,7 +258,8 @@ export default function MyTrip() {
                 No trip plan created yet
               </h3>
               <p className="mt-2 max-w-[420px] text-[14px] text-[#766f62]">
-                You haven't planned a customized journey to Egypt yet. Start creating your AI trip plan or explore curated places!
+                You haven't planned a customized journey to Egypt yet. Start
+                creating your AI trip plan or explore curated places!
               </p>
 
               {/* أزرار الاقتراحات والإجراءات */}
@@ -287,16 +303,25 @@ export default function MyTrip() {
 
                   <div className="space-y-[12px]">
                     {visibleDays.map((dayPlan, index) => {
-                      const dayNum = dayPlan.dayNumber || dayPlan.day || index + 1;
-                      const activitiesList = dayPlan.activities || dayPlan.items || [];
+                      const dayNum =
+                        dayPlan.dayNumber || dayPlan.day || index + 1;
+                      const activitiesList =
+                        dayPlan.activities || dayPlan.items || [];
                       const activity = activitiesList[0] || {};
-                      const currentCity = dayPlan.city || dayPlan.destination || destinations[index % destinations.length];
+                      const currentCity =
+                        dayPlan.city ||
+                        dayPlan.destination ||
+                        destinations[index % destinations.length];
 
                       const title =
-                        activity.title || activity.name || `Explore ${currentCity}`;
+                        activity.title ||
+                        activity.name ||
+                        `Explore ${currentCity}`;
                       const dateDisplay =
-                        formatDate(dayPlan.date) || String(dayNum).padStart(2, "0");
-                      const isTravelDay = /luxor|journey|fly|train|flight/i.test(title);
+                        formatDate(dayPlan.date) ||
+                        String(dayNum).padStart(2, "0");
+                      const isTravelDay =
+                        /luxor|journey|fly|train|flight/i.test(title);
 
                       return (
                         <article
@@ -365,11 +390,15 @@ export default function MyTrip() {
                         className="flex items-center justify-between rounded-[8px] border border-[#b5a37b] p-5 text-sm"
                       >
                         <span className="text-[15px] font-medium">
-                          {booking.title || booking.tourName || "Booked service"}
+                          {booking.title ||
+                            booking.tourName ||
+                            "Booked service"}
                         </span>
                         <button
                           type="button"
-                          onClick={() => setCancelBookingId(booking._id || booking.id)}
+                          onClick={() =>
+                            setCancelBookingId(booking._id || booking.id)
+                          }
                           className="rounded border border-red-200 px-3 py-1 text-xs text-red-600 transition-colors hover:bg-red-50 hover:underline"
                         >
                           Cancel
@@ -377,7 +406,9 @@ export default function MyTrip() {
                       </div>
                     ))}
                     {!bookedTours?.length && (
-                      <p className="text-xs text-[#766f62]">No active bookings found.</p>
+                      <p className="text-xs text-[#766f62]">
+                        No active bookings found.
+                      </p>
                     )}
                   </div>
                 </section>
@@ -464,49 +495,121 @@ export default function MyTrip() {
                       >
                         <Icon className="h-3.5 w-3.5" />
                       </a>
-                    )
+                    ),
                   )}
                 </div>
               </div>
 
               <div className="grid grid-cols-2 gap-8 sm:grid-cols-4 lg:col-span-6">
                 <div>
-                  <h4 className="text-[14px] font-semibold text-white">Explore</h4>
+                  <h4 className="text-[14px] font-semibold text-white">
+                    Explore
+                  </h4>
                   <ul className="mt-4 space-y-2.5 text-[13px] text-[#a3998b]">
-                    <li><a href="#" className="hover:text-white">Destinations</a></li>
-                    <li><a href="#" className="hover:text-white">Attractions</a></li>
-                    <li><a href="#" className="hover:text-white">Activities</a></li>
-                    <li><a href="#" className="hover:text-white">Restaurants</a></li>
+                    <li>
+                      <a href="#" className="hover:text-white">
+                        Destinations
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#" className="hover:text-white">
+                        Attractions
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#" className="hover:text-white">
+                        Activities
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#" className="hover:text-white">
+                        Restaurants
+                      </a>
+                    </li>
                   </ul>
                 </div>
 
                 <div>
-                  <h4 className="text-[14px] font-semibold text-white">My Trip</h4>
+                  <h4 className="text-[14px] font-semibold text-white">
+                    My Trip
+                  </h4>
                   <ul className="mt-4 space-y-2.5 text-[13px] text-[#a3998b]">
-                    <li><a href="#" className="hover:text-white">My Itinerary</a></li>
-                    <li><a href="#" className="hover:text-white">Saved Places</a></li>
-                    <li><a href="#" className="hover:text-white">Offline Maps</a></li>
-                    <li><a href="#" className="hover:text-white">Trip Details</a></li>
+                    <li>
+                      <a href="#" className="hover:text-white">
+                        My Itinerary
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#" className="hover:text-white">
+                        Saved Places
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#" className="hover:text-white">
+                        Offline Maps
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#" className="hover:text-white">
+                        Trip Details
+                      </a>
+                    </li>
                   </ul>
                 </div>
 
                 <div>
-                  <h4 className="text-[14px] font-semibold text-white">Services</h4>
+                  <h4 className="text-[14px] font-semibold text-white">
+                    Services
+                  </h4>
                   <ul className="mt-4 space-y-2.5 text-[13px] text-[#a3998b]">
-                    <li><a href="#" className="hover:text-white">Visa</a></li>
-                    <li><a href="#" className="hover:text-white">Transportation</a></li>
-                    <li><a href="#" className="hover:text-white">Accommodation</a></li>
-                    <li><a href="#" className="hover:text-white">Travel Insurance</a></li>
+                    <li>
+                      <a href="#" className="hover:text-white">
+                        Visa
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#" className="hover:text-white">
+                        Transportation
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#" className="hover:text-white">
+                        Accommodation
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#" className="hover:text-white">
+                        Travel Insurance
+                      </a>
+                    </li>
                   </ul>
                 </div>
 
                 <div>
-                  <h4 className="text-[14px] font-semibold text-white">Support</h4>
+                  <h4 className="text-[14px] font-semibold text-white">
+                    Support
+                  </h4>
                   <ul className="mt-4 space-y-2.5 text-[13px] text-[#a3998b]">
-                    <li><a href="#" className="hover:text-white">Help Center</a></li>
-                    <li><a href="#" className="hover:text-white">Contact Us</a></li>
-                    <li><a href="#" className="hover:text-white">About Us</a></li>
-                    <li><a href="#" className="hover:text-white">Terms & Privacy</a></li>
+                    <li>
+                      <a href="#" className="hover:text-white">
+                        Help Center
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#" className="hover:text-white">
+                        Contact Us
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#" className="hover:text-white">
+                        About Us
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#" className="hover:text-white">
+                        Terms & Privacy
+                      </a>
+                    </li>
                   </ul>
                 </div>
               </div>
@@ -516,8 +619,12 @@ export default function MyTrip() {
                   <div className="flex items-start gap-2.5">
                     <AlertTriangle className="mt-0.5 h-4 w-4 text-[#d8c090]" />
                     <div>
-                      <h5 className="text-[13px] font-semibold text-[#d8c090]">Emergency</h5>
-                      <p className="mt-1 text-[11px] text-[#a3998b]">Get help in case of any emergency</p>
+                      <h5 className="text-[13px] font-semibold text-[#d8c090]">
+                        Emergency
+                      </h5>
+                      <p className="mt-1 text-[11px] text-[#a3998b]">
+                        Get help in case of any emergency
+                      </p>
                     </div>
                   </div>
                   <button

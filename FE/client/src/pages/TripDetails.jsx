@@ -1,6 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { useParams, useNavigate, useLocation } from "react-router-dom";
-import { PlusCircle, Compass, Clock, Ticket, MapPin, Bus, Hotel, Wallet } from "lucide-react";
+import {
+  PlusCircle,
+  Compass,
+  Clock,
+  Ticket,
+  MapPin,
+  Bus,
+  Hotel,
+  Wallet,
+} from "lucide-react";
 import SiteNavbar from "../components/layout/SiteNavbar";
 import Footer from "../components/layout/Footer";
 import { getTripById } from "../api/tripsApi";
@@ -63,25 +72,35 @@ export default function TripDetails() {
   }
 
   return (
-    <div className="min-h-screen bg-[#FDFCF7] text-[#2B2319]">
+    <div className="min-h-dvh bg-[#FDFCF7] text-[#2B2319]">
       <SiteNavbar />
 
       {/* Hero Banner Section */}
       <div className="relative h-[420px] w-full overflow-hidden bg-black/40">
         <img
-          src={trip.image || trip.imageUrl || "https://images.unsplash.com/photo-1503177112274-9fe29139ebe0?auto=format&fit=crop&q=80&w=1600"}
+          src={
+            trip.image ||
+            trip.imageUrl ||
+            "https://images.unsplash.com/photo-1503177112274-9fe29139ebe0?auto=format&fit=crop&q=80&w=1600"
+          }
           alt={trip.title}
           className="h-full w-full object-cover opacity-80"
           onError={(e) => {
-            e.target.src = "https://images.unsplash.com/photo-1503177112274-9fe29139ebe0?auto=format&fit=crop&q=80&w=1600";
+            e.target.src =
+              "https://images.unsplash.com/photo-1503177112274-9fe29139ebe0?auto=format&fit=crop&q=80&w=1600";
           }}
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
         <div className="absolute bottom-8 left-0 right-0 mx-auto max-w-[1200px] px-6 text-white">
           <h1 className="text-4xl font-extrabold sm:text-5xl">{trip.title}</h1>
           <div className="mt-3 flex items-center gap-6 text-sm text-gray-200">
-            <span className="flex items-center gap-1.5"><MapPin className="h-4 w-4" /> {trip.location}</span>
-            <span className="flex items-center gap-1.5"><Clock className="h-4 w-4" /> {trip.duration || "Duration not specified"}</span>
+            <span className="flex items-center gap-1.5">
+              <MapPin className="h-4 w-4" /> {trip.location}
+            </span>
+            <span className="flex items-center gap-1.5">
+              <Clock className="h-4 w-4" />{" "}
+              {trip.duration || "Duration not specified"}
+            </span>
           </div>
         </div>
       </div>
@@ -90,7 +109,9 @@ export default function TripDetails() {
         {/* Top Details & Plan Visit Card */}
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-3">
           <div className="lg:col-span-2">
-            <h2 className="text-3xl font-extrabold text-[#2B2319]">{trip.title}</h2>
+            <h2 className="text-3xl font-extrabold text-[#2B2319]">
+              {trip.title}
+            </h2>
             <p className="mt-1 flex items-center gap-1 text-sm text-[#8C7A6B]">
               <MapPin className="h-4 w-4 text-[#C59B27]" /> {trip.location}
             </p>
@@ -101,11 +122,16 @@ export default function TripDetails() {
 
             {/* Tags */}
             <div className="mt-8 flex flex-wrap gap-3">
-              {["UNESCO HERITAGE", "ANCIENT RUINS", "HISTORIC SITE"].map((tag, i) => (
-                <span key={i} className="rounded-full border border-[#D9CEBF] px-4 py-1.5 text-xs font-semibold text-[#8C7A6B]">
-                  {tag}
-                </span>
-              ))}
+              {["UNESCO HERITAGE", "ANCIENT RUINS", "HISTORIC SITE"].map(
+                (tag, i) => (
+                  <span
+                    key={i}
+                    className="rounded-full border border-[#D9CEBF] px-4 py-1.5 text-xs font-semibold text-[#8C7A6B]"
+                  >
+                    {tag}
+                  </span>
+                ),
+              )}
             </div>
           </div>
 
@@ -119,10 +145,10 @@ export default function TripDetails() {
               >
                 <PlusCircle className="h-4 w-4" /> ADD TO MY TRIP
               </button>
-              
+
               <a
                 href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
-                  `${trip.title || ''} ${trip.location || ''}`
+                  `${trip.title || ""} ${trip.location || ""}`,
                 )}`}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -135,11 +161,15 @@ export default function TripDetails() {
             <div className="mt-6 space-y-3 border-t border-[#EBE4D8] pt-6 text-xs text-[#7A6B5D]">
               <div>
                 <p className="font-bold text-[#2B2319]">Opening Hours</p>
-                <p className="mt-0.5">{trip.openingHours || "6:00 AM - 5:30 PM (Daily)"}</p>
+                <p className="mt-0.5">
+                  {trip.openingHours || "6:00 AM - 5:30 PM (Daily)"}
+                </p>
               </div>
               <div>
                 <p className="font-bold text-[#2B2319]">Admission</p>
-                <p className="mt-0.5">Adults: {trip.price ? `$${trip.price}` : "200 EGP"}</p>
+                <p className="mt-0.5">
+                  Adults: {trip.price ? `$${trip.price}` : "200 EGP"}
+                </p>
               </div>
             </div>
           </div>
@@ -147,8 +177,10 @@ export default function TripDetails() {
 
         {/* Dynamic Itinerary Section */}
         <div className="mt-16">
-          <h2 className="text-xl font-bold uppercase tracking-wider text-[#2B2319]">ITINERARY</h2>
-          
+          <h2 className="text-xl font-bold uppercase tracking-wider text-[#2B2319]">
+            ITINERARY
+          </h2>
+
           <div className="mt-6 grid grid-cols-1 gap-8 lg:grid-cols-3">
             <div className="space-y-8 lg:col-span-2">
               {trip.itinerary && trip.itinerary.length > 0 ? (
@@ -158,9 +190,11 @@ export default function TripDetails() {
                       Day {day.dayNumber}: {day.title}
                     </h3>
                     {day.description && (
-                      <p className="mt-1 text-xs text-[#8C7A6B]">{day.description}</p>
+                      <p className="mt-1 text-xs text-[#8C7A6B]">
+                        {day.description}
+                      </p>
                     )}
-                    
+
                     <div className="mt-4 space-y-3">
                       {day.activities && day.activities.length > 0 ? (
                         day.activities.map((act, idx) => (
@@ -181,24 +215,29 @@ export default function TripDetails() {
 
                             <a
                               href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
-                                `${act.title} ${trip.location || ''}`
+                                `${act.title} ${trip.location || ""}`,
                               )}`}
                               target="_blank"
                               rel="noopener noreferrer"
                               className="flex shrink-0 items-center gap-1 rounded-lg border border-[#EBE4D8] bg-[#FAF7F2] px-3 py-1.5 text-xs font-semibold text-[#5A4D41] hover:bg-[#EBE4D8]"
                             >
-                              <MapPin className="h-3.5 w-3.5 text-[#C59B27]" /> Map
+                              <MapPin className="h-3.5 w-3.5 text-[#C59B27]" />{" "}
+                              Map
                             </a>
                           </div>
                         ))
                       ) : (
-                        <p className="text-xs text-[#8C7A6B]">No specific activities planned for this day.</p>
+                        <p className="text-xs text-[#8C7A6B]">
+                          No specific activities planned for this day.
+                        </p>
                       )}
                     </div>
                   </div>
                 ))
               ) : (
-                <p className="text-sm text-[#8C7A6B]">No detailed itinerary available for this trip yet.</p>
+                <p className="text-sm text-[#8C7A6B]">
+                  No detailed itinerary available for this trip yet.
+                </p>
               )}
             </div>
 
@@ -215,7 +254,7 @@ export default function TripDetails() {
                 style={{ border: 0 }}
                 loading="lazy"
                 src={`https://maps.google.com/maps?q=${encodeURIComponent(
-                  `${trip.title || ''} ${trip.location || 'Egypt'}`
+                  `${trip.title || ""} ${trip.location || "Egypt"}`,
                 )}&t=&z=13&ie=UTF8&iwloc=&output=embed`}
               ></iframe>
             </div>
@@ -229,7 +268,9 @@ export default function TripDetails() {
 
         {/* Trip Summary Section */}
         <div className="mt-16">
-          <h2 className="text-xl font-bold uppercase tracking-wider text-[#2B2319]">TRIP SUMMARY</h2>
+          <h2 className="text-xl font-bold uppercase tracking-wider text-[#2B2319]">
+            TRIP SUMMARY
+          </h2>
           <div className="mt-6 grid grid-cols-2 gap-4 sm:grid-cols-4">
             <div className="rounded-xl bg-[#F3EFEA] p-4">
               <Wallet className="h-5 w-5 text-[#8C7A6B]" />
@@ -251,7 +292,9 @@ export default function TripDetails() {
             <div className="rounded-xl bg-[#F3EFEA] p-4">
               <Bus className="h-5 w-5 text-[#8C7A6B]" />
               <p className="mt-3 text-xs text-[#8C7A6B]">Transportation</p>
-              <p className="text-sm font-bold text-[#2B2319]">Transfers Incl.</p>
+              <p className="text-sm font-bold text-[#2B2319]">
+                Transfers Incl.
+              </p>
             </div>
           </div>
         </div>

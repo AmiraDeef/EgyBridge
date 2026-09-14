@@ -12,7 +12,9 @@ import {
   UtensilsCrossed,
   FileText,
   Building2,
-  Bus,Star, MessageSquare
+  Bus,
+  Star,
+  MessageSquare,
 } from "lucide-react";
 
 import SiteNavbar from "../components/layout/SiteNavbar";
@@ -84,7 +86,7 @@ export default function Home() {
   const { data: trips, loading, error, refetch } = useApi(getAllTrips);
 
   return (
-    <div className="relative min-h-screen bg-[#FAF6ED] font-body text-[#3B2F1E]">
+    <div className="relative min-h-dvh bg-[#FAF6ED] font-body text-[#3B2F1E]">
       <SiteNavbar />
 
       <main className="relative z-10 mx-auto w-full max-w-[1240px] px-4 pb-20 sm:px-8">
@@ -189,28 +191,31 @@ export default function Home() {
           </div>
         </section>
         <section className="my-16 w-full max-w-[1100px] rounded-2xl border border-[#DCD3C1] bg-[#EFE9DC] p-8 text-center shadow-sm">
-  <div className="flex flex-col items-center">
-    <div className="flex items-center gap-1 text-amber-500 mb-2">
-      {[...Array(5)].map((_, i) => (
-        <Star key={i} className="h-5 w-5 fill-amber-400" />
-      ))}
-    </div>
-    <h2 className="text-2xl font-bold text-[#5C4000]">What Travelers Say</h2>
-    <p className="mt-2 text-sm text-[#736348] max-w-[500px]">
-      Explore real experiences, comments, and media shared by tourists who visited Egypt!
-    </p>
+          <div className="flex flex-col items-center">
+            <div className="flex items-center gap-1 text-amber-500 mb-2">
+              {[...Array(5)].map((_, i) => (
+                <Star key={i} className="h-5 w-5 fill-amber-400" />
+              ))}
+            </div>
+            <h2 className="text-2xl font-bold text-[#5C4000]">
+              What Travelers Say
+            </h2>
+            <p className="mt-2 text-sm text-[#736348] max-w-[500px]">
+              Explore real experiences, comments, and media shared by tourists
+              who visited Egypt!
+            </p>
 
-    {/* إرجاع المستخدم لأول رحلة كـ Example لمشاهدة التقييمات */}
-    {trips && trips.length > 0 && (
-      <Link
-        to={`/trip-details/${trips[0]._id}#reviews`}
-        className="mt-5 flex items-center gap-2 rounded-xl bg-[#BD8C1A] px-6 py-3 text-sm font-bold text-white transition-all hover:bg-[#A8821D]"
-      >
-        <MessageSquare className="h-4 w-4" /> Read Traveler Reviews
-      </Link>
-    )}
-  </div>
-</section>
+            {/* إرجاع المستخدم لأول رحلة كـ Example لمشاهدة التقييمات */}
+            {trips && trips.length > 0 && (
+              <Link
+                to={`/trip-details/${trips[0]._id}#reviews`}
+                className="mt-5 flex items-center gap-2 rounded-xl bg-[#BD8C1A] px-6 py-3 text-sm font-bold text-white transition-all hover:bg-[#A8821D]"
+              >
+                <MessageSquare className="h-4 w-4" /> Read Traveler Reviews
+              </Link>
+            )}
+          </div>
+        </section>
 
         {/* Floating Character & Popular Destinations Section */}
         <section className="relative mt-20 mb-20 max-w-[1100px] pt-[180px]">

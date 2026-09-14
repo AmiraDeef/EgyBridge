@@ -19,12 +19,17 @@ export default function PlanningStep2Budget() {
   // استرجاع الميزانية والخيارات الحقيقية المخزنة سابقاً
   const [budget, setBudget] = useState(draft?.budget || 800);
   const [inclusions, setInclusions] = useState(
-    draft?.inclusions || ["accommodation", "transportation", "activities", "food_drinks"]
+    draft?.inclusions || [
+      "accommodation",
+      "transportation",
+      "activities",
+      "food_drinks",
+    ],
   );
 
   const toggleInclusion = (key) => {
     setInclusions((prev) =>
-      prev.includes(key) ? prev.filter((item) => item !== key) : [...prev, key]
+      prev.includes(key) ? prev.filter((item) => item !== key) : [...prev, key],
     );
   };
 
@@ -38,7 +43,7 @@ export default function PlanningStep2Budget() {
   };
 
   return (
-    <div className="min-h-screen bg-[#FAF6ED] pb-20 font-sans text-[#2D261E]">
+    <div className="min-h-dvh bg-[#FAF6ED] pb-20 font-sans text-[#2D261E]">
       <SiteNavbar />
 
       <main className="mx-auto max-w-3xl px-6 py-12 font-sans">
@@ -66,7 +71,6 @@ export default function PlanningStep2Budget() {
 
         {/* Budget Card Container */}
         <div className="mb-10 rounded-3xl border border-[#E8DFC8] bg-[#F7F3EB] p-8 shadow-sm sm:p-12">
-          
           {/* Budget Display Value */}
           <div className="mb-8 text-center">
             <span className="font-serif text-5xl font-bold text-[#3B3021]">
@@ -111,7 +115,9 @@ export default function PlanningStep2Budget() {
                         : "border-[#E5DEC9] bg-white hover:border-[#C8B896]"
                     }`}
                   >
-                    <span className="text-sm font-bold text-[#3B3021]">{label}</span>
+                    <span className="text-sm font-bold text-[#3B3021]">
+                      {label}
+                    </span>
                     <div
                       className={`flex h-5 w-5 items-center justify-center rounded-md border transition ${
                         active
@@ -119,7 +125,9 @@ export default function PlanningStep2Budget() {
                           : "border-[#C8B896]"
                       }`}
                     >
-                      {active && <Check className="h-3.5 w-3.5" strokeWidth={3} />}
+                      {active && (
+                        <Check className="h-3.5 w-3.5" strokeWidth={3} />
+                      )}
                     </div>
                   </button>
                 );

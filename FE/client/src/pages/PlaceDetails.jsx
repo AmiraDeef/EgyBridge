@@ -29,7 +29,9 @@ function DetailRow({ icon: Icon, label, value }) {
     <div className="flex items-start gap-3 text-sm text-[#514939]">
       <Icon className="mt-0.5 h-4 w-4 shrink-0 text-[#BD8C1A]" />
       <div>
-        <p className="font-semibold text-[#302711] text-xs uppercase tracking-wider">{label}</p>
+        <p className="font-semibold text-[#302711] text-xs uppercase tracking-wider">
+          {label}
+        </p>
         <p className="text-sm font-medium text-[#524016] mt-0.5">{value}</p>
       </div>
     </div>
@@ -46,7 +48,7 @@ export default function PlaceDetails() {
   } = useApi(() => getPlaceById(id), [id]);
 
   return (
-    <div className="min-h-screen bg-[#FAF6ED] font-body text-[#211D18]">
+    <div className="min-h-dvh bg-[#FAF6ED] font-body text-[#211D18]">
       <SiteNavbar />
       <AsyncState
         loading={loading}
@@ -158,7 +160,8 @@ export default function PlaceDetails() {
                       to="/plan/places"
                       className="mt-6 flex w-full items-center justify-center gap-2 rounded-xl bg-[#BD8C1A] px-4 py-3.5 text-xs font-bold uppercase tracking-wider text-white shadow-md transition-colors hover:bg-[#a67c17]"
                     >
-                      ADD TO MY TRIP <span className="text-base font-bold">+</span>
+                      ADD TO MY TRIP{" "}
+                      <span className="text-base font-bold">+</span>
                     </Link>
 
                     <a
@@ -223,7 +226,8 @@ export default function PlaceDetails() {
                       to="/explore"
                       className="mt-6 inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#835400] hover:underline"
                     >
-                      View Full Itinerary <ExternalLink className="h-3.5 w-3.5" />
+                      View Full Itinerary{" "}
+                      <ExternalLink className="h-3.5 w-3.5" />
                     </Link>
                   </div>
 
@@ -250,26 +254,36 @@ export default function PlaceDetails() {
                   </h2>
                   <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
                     <div className="rounded-xl border border-[#BD8C1A]/30 bg-[#F1EAD0]/80 p-4 text-xs">
-                      <b className="text-sm font-bold text-[#302711]">Estimated Visit</b>
+                      <b className="text-sm font-bold text-[#302711]">
+                        Estimated Visit
+                      </b>
                       <p className="mt-2 font-medium text-[#524016]">
                         {practical.estimatedVisitDuration || "Not available"}
                       </p>
                     </div>
                     <div className="rounded-xl border border-[#BD8C1A]/30 bg-[#F1EAD0]/80 p-4 text-xs">
-                      <b className="text-sm font-bold text-[#302711]">Opening Hours</b>
+                      <b className="text-sm font-bold text-[#302711]">
+                        Opening Hours
+                      </b>
                       <p className="mt-2 font-medium text-[#524016]">
                         {practical.openingHours || "Not available"}
                       </p>
                     </div>
                     <div className="rounded-xl border border-[#BD8C1A]/30 bg-[#F1EAD0]/80 p-4 text-xs">
-                      <b className="text-sm font-bold text-[#302711]">Admission</b>
+                      <b className="text-sm font-bold text-[#302711]">
+                        Admission
+                      </b>
                       <p className="mt-2 font-medium text-[#524016]">
                         {currentPlace.priceContext?.range || "Not available"}
                       </p>
                     </div>
                     <div className="rounded-xl border border-[#BD8C1A]/30 bg-[#F1EAD0]/80 p-4 text-xs">
-                      <b className="text-sm font-bold text-[#302711]">Location</b>
-                      <p className="mt-2 font-medium text-[#524016]">{address}</p>
+                      <b className="text-sm font-bold text-[#302711]">
+                        Location
+                      </b>
+                      <p className="mt-2 font-medium text-[#524016]">
+                        {address}
+                      </p>
                     </div>
                   </div>
                 </section>

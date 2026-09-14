@@ -200,7 +200,7 @@ export default function PlanningStep1() {
 
   const [leftMonth, setLeftMonth] = useState(() => addMonths(today, 0));
   const [rightMonth, setRightMonth] = useState(() => addMonths(today, 1));
-  
+
   // استرجاع البيانات من الـ draft إن وجدت
   const [startDate, setStartDate] = useState(() =>
     draft?.dates?.start ? new Date(draft.dates.start) : null,
@@ -210,7 +210,9 @@ export default function PlanningStep1() {
   );
   const [interests, setInterests] = useState(draft?.interests || []);
   const [companion, setCompanion] = useState(draft?.companion || "solo");
-  const [isAccessible, setIsAccessible] = useState(draft?.isAccessible || false);
+  const [isAccessible, setIsAccessible] = useState(
+    draft?.isAccessible || false,
+  );
 
   const stepsSectionRef = useRef(null);
 
@@ -252,7 +254,7 @@ export default function PlanningStep1() {
   };
 
   return (
-    <div className="min-h-screen bg-[#FAF6ED] pb-20 font-sans text-[#2D261E]">
+    <div className="min-h-dvh bg-[#FAF6ED] pb-20 font-sans text-[#2D261E]">
       <SiteNavbar />
 
       {/* Hero Header */}

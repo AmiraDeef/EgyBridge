@@ -1,16 +1,16 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { 
-  ChevronLeft, 
-  ArrowRight, 
-  Scale, 
-  Armchair, 
-  Footprints, 
-  Car, 
-  Bus, 
-  CarFront, 
-  Hotel, 
-  Home 
+import {
+  ChevronLeft,
+  ArrowRight,
+  Scale,
+  Armchair,
+  Footprints,
+  Car,
+  Bus,
+  CarFront,
+  Hotel,
+  Home,
 } from "lucide-react";
 import SiteNavbar from "../components/layout/SiteNavbar";
 import { usePlanningDraft } from "../context/PlanningContext";
@@ -21,7 +21,9 @@ export default function PlanningStep4Preferences() {
 
   const [pace, setPace] = useState(draft?.pace || "relaxed");
   const [transport, setTransport] = useState(draft?.transport || "taxi");
-  const [accommodation, setAccommodation] = useState(draft?.accommodation || "hotel");
+  const [accommodation, setAccommodation] = useState(
+    draft?.accommodation || "hotel",
+  );
 
   // ✅ حفظ التفضيلات بشكل صحيح والانتقال لصفحة المراجعة الأخيرة
   const handleContinue = () => {
@@ -33,7 +35,7 @@ export default function PlanningStep4Preferences() {
   };
 
   return (
-    <div className="min-h-screen bg-[#FAF6ED] font-sans text-[#524312] pb-20">
+    <div className="min-h-dvh bg-[#FAF6ED] font-sans text-[#524312] pb-20">
       <SiteNavbar />
 
       <main className="mx-auto max-w-3xl px-6 py-6">
@@ -84,8 +86,14 @@ export default function PlanningStep4Preferences() {
                         : "border-gray-300 bg-white text-[#524312] hover:border-[#524312]"
                     }`}
                   >
-                    <Icon className={`mb-2 h-5 w-5 ${isSelected ? "text-white" : "text-[#524312]"}`} />
-                    <span className={isSelected ? "text-white" : "text-[#524312]"}>{item.label}</span>
+                    <Icon
+                      className={`mb-2 h-5 w-5 ${isSelected ? "text-white" : "text-[#524312]"}`}
+                    />
+                    <span
+                      className={isSelected ? "text-white" : "text-[#524312]"}
+                    >
+                      {item.label}
+                    </span>
                   </button>
                 );
               })}
@@ -116,8 +124,14 @@ export default function PlanningStep4Preferences() {
                         : "border-gray-300 bg-white text-[#524312] hover:border-[#524312]"
                     }`}
                   >
-                    <Icon className={`mb-2 h-5 w-5 ${isSelected ? "text-white" : "text-[#524312]"}`} />
-                    <span className={isSelected ? "text-white" : "text-[#524312]"}>{item.label}</span>
+                    <Icon
+                      className={`mb-2 h-5 w-5 ${isSelected ? "text-white" : "text-[#524312]"}`}
+                    />
+                    <span
+                      className={isSelected ? "text-white" : "text-[#524312]"}
+                    >
+                      {item.label}
+                    </span>
                   </button>
                 );
               })}
@@ -147,8 +161,14 @@ export default function PlanningStep4Preferences() {
                         : "border-gray-300 bg-white text-[#524312] hover:border-[#524312]"
                     }`}
                   >
-                    <Icon className={`mb-2 h-5 w-5 ${isSelected ? "text-white" : "text-[#524312]"}`} />
-                    <span className={isSelected ? "text-white" : "text-[#524312]"}>{item.label}</span>
+                    <Icon
+                      className={`mb-2 h-5 w-5 ${isSelected ? "text-white" : "text-[#524312]"}`}
+                    />
+                    <span
+                      className={isSelected ? "text-white" : "text-[#524312]"}
+                    >
+                      {item.label}
+                    </span>
                   </button>
                 );
               })}

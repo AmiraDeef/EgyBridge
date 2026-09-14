@@ -20,13 +20,14 @@ export default function Restaurants() {
   const handleSearch = (e) => {
     e.preventDefault();
     // Redirects to TripAdvisor Egypt Restaurants with applied search query
-    const query = `${searchQuery} ${selectedCuisine} restaurants ${location} Egypt`.trim();
+    const query =
+      `${searchQuery} ${selectedCuisine} restaurants ${location} Egypt`.trim();
     const tripAdvisorUrl = `https://www.tripadvisor.com/Search?q=${encodeURIComponent(query)}`;
     window.open(tripAdvisorUrl, "_blank");
   };
 
   return (
-    <div className="min-h-screen bg-[#FAF6ED] font-body text-[#211D18] flex flex-col justify-between">
+    <div className="min-h-dvh bg-[#FAF6ED] font-body text-[#211D18] flex flex-col justify-between">
       {/* Navbar */}
       <header className="mx-auto w-full max-w-6xl px-6 pt-6 sm:px-10">
         <nav className="flex items-center justify-between rounded-full border border-[#524016]/30 bg-[#FDFBF7] px-6 py-2.5 shadow-sm">
@@ -42,25 +43,39 @@ export default function Restaurants() {
             <span className="rounded-full bg-[#524016] px-5 py-1 text-[11px] font-bold uppercase tracking-wider text-[#FDFBF7]">
               RESTAURANTS
             </span>
-            <span className="hidden text-xs font-bold text-[#211D18]/80 sm:inline">$ USD</span>
+            <span className="hidden text-xs font-bold text-[#211D18]/80 sm:inline">
+              $ USD
+            </span>
           </div>
 
           <div className="flex items-center gap-6 text-xs font-bold uppercase tracking-wider text-[#211D18]/80">
-            <Link to="/about" className="hidden transition-colors hover:text-[#835400] sm:inline">
+            <Link
+              to="/about"
+              className="hidden transition-colors hover:text-[#835400] sm:inline"
+            >
               ABOUT
             </Link>
             {isAuthenticated ? (
-              <Link to="/my-trip" className="flex items-center gap-1.5 text-[#835400] hover:text-[#A48238]">
+              <Link
+                to="/my-trip"
+                className="flex items-center gap-1.5 text-[#835400] hover:text-[#A48238]"
+              >
                 <User className="h-3.5 w-3.5" />
                 <span>{user?.fullName?.split(" ")[0] || "MY TRIP"}</span>
               </Link>
             ) : (
-              <Link to="/login" className="flex items-center gap-1.5 transition-colors hover:text-[#835400]">
+              <Link
+                to="/login"
+                className="flex items-center gap-1.5 transition-colors hover:text-[#835400]"
+              >
                 <User className="h-3.5 w-3.5" />
                 <span>SIGN UP/LOGIN</span>
               </Link>
             )}
-            <button type="button" className="flex items-center gap-1 transition-colors hover:text-[#835400]">
+            <button
+              type="button"
+              className="flex items-center gap-1 transition-colors hover:text-[#835400]"
+            >
               <Globe className="h-3.5 w-3.5" />
               <span>Languages</span>
             </button>

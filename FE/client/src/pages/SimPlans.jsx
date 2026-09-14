@@ -1,6 +1,13 @@
 import React, { useState, useRef } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { Globe, User, ArrowLeft, ChevronLeft, ChevronRight, ExternalLink } from "lucide-react";
+import {
+  Globe,
+  User,
+  ArrowLeft,
+  ChevronLeft,
+  ChevronRight,
+  ExternalLink,
+} from "lucide-react";
 import Logo from "../components/common/Logo";
 import characterImg from "../assets/serCharacter.png";
 import { useAuth } from "../context/AuthContext";
@@ -73,7 +80,7 @@ export default function SimPlans() {
   };
 
   return (
-    <div className="min-h-screen bg-[#FAF6ED] font-body text-[#3B2F11] flex flex-col justify-between overflow-x-hidden">
+    <div className="min-h-dvh bg-[#FAF6ED] font-body text-[#3B2F11] flex flex-col justify-between overflow-x-hidden">
       {/* Top Bar */}
       <header className="mx-auto w-full max-w-6xl px-4 pt-6 sm:px-8">
         <nav className="flex items-center justify-between rounded-full border border-[#D9C89E] bg-[#F7F4EB] px-6 py-2.5 shadow-sm">
@@ -86,22 +93,34 @@ export default function SimPlans() {
           </div>
 
           <div className="flex items-center gap-6 text-xs font-bold uppercase tracking-wider text-[#3B2F11]">
-            <Link to="/about" className="flex items-center gap-1 hover:opacity-80 transition-opacity">
+            <Link
+              to="/about"
+              className="flex items-center gap-1 hover:opacity-80 transition-opacity"
+            >
               ABOUT <span className="h-2 w-2 rounded-full bg-[#524016]"></span>
             </Link>
 
             {isAuthenticated ? (
-              <Link to="/my-trip" className="flex items-center gap-1.5 hover:opacity-80 transition-opacity">
+              <Link
+                to="/my-trip"
+                className="flex items-center gap-1.5 hover:opacity-80 transition-opacity"
+              >
                 <User className="h-3.5 w-3.5" />
                 <span>{user?.fullName?.split(" ")[0] || "MY TRIP"}</span>
               </Link>
             ) : (
-              <Link to="/login" className="flex items-center gap-1.5 hover:opacity-80 transition-opacity">
+              <Link
+                to="/login"
+                className="flex items-center gap-1.5 hover:opacity-80 transition-opacity"
+              >
                 <span>SIGN UP/LOGIN</span>
               </Link>
             )}
 
-            <button type="button" className="flex items-center gap-1 hover:opacity-80 transition-opacity">
+            <button
+              type="button"
+              className="flex items-center gap-1 hover:opacity-80 transition-opacity"
+            >
               <Globe className="h-3.5 w-3.5" />
               <span>Languages</span>
             </button>
@@ -117,9 +136,10 @@ export default function SimPlans() {
             onClick={() => navigate(-1)}
             className="flex items-center gap-1 text-xs font-semibold text-[#524016] hover:opacity-80 transition-opacity"
           >
-            <ArrowLeft className="h-4 w-4" />Back to services
+            <ArrowLeft className="h-4 w-4" />
+            Back to services
           </button>
-          
+
           <div className="w-4"></div>
         </div>
 
@@ -172,7 +192,9 @@ export default function SimPlans() {
                         </p>
                       </div>
                       <div className="h-4 w-5 bg-[#C89B2B] rounded flex items-center justify-center shadow-sm">
-                        <span className="text-[7px] text-white font-bold">SIM</span>
+                        <span className="text-[7px] text-white font-bold">
+                          SIM
+                        </span>
                       </div>
                     </div>
 
@@ -190,13 +212,22 @@ export default function SimPlans() {
                     <div>
                       <div className="flex items-center justify-between border-t border-[#E0D5B8] pt-3 text-left">
                         <div>
-                          <p className="text-[8px] font-bold uppercase text-[#8A7A55]">VALIDITY</p>
-                          <p className="text-xs font-bold text-[#3B2F11]">{plan.validity}</p>
+                          <p className="text-[8px] font-bold uppercase text-[#8A7A55]">
+                            VALIDITY
+                          </p>
+                          <p className="text-xs font-bold text-[#3B2F11]">
+                            {plan.validity}
+                          </p>
                         </div>
                         <div className="text-right">
-                          <p className="text-[8px] font-bold uppercase text-[#8A7A55]">PRICE</p>
+                          <p className="text-[8px] font-bold uppercase text-[#8A7A55]">
+                            PRICE
+                          </p>
                           <p className="text-xs font-bold text-[#3B2F11]">
-                            ${plan.price} <span className="text-[8px] font-normal text-[#8A7A55]">USD</span>
+                            ${plan.price}{" "}
+                            <span className="text-[8px] font-normal text-[#8A7A55]">
+                              USD
+                            </span>
                           </p>
                         </div>
                       </div>
@@ -216,7 +247,9 @@ export default function SimPlans() {
                         <div className="leading-tight flex items-center gap-1">
                           BUY NOW <ExternalLink className="h-3 w-3 inline" />
                         </div>
-                        <div className="text-[8px] font-normal opacity-80">or Select Plan</div>
+                        <div className="text-[8px] font-normal opacity-80">
+                          or Select Plan
+                        </div>
                       </button>
                     </div>
                   </div>

@@ -26,13 +26,13 @@ export default function Hotels() {
   const handleSearch = (e) => {
     e.preventDefault();
     const bookingUrl = `https://www.booking.com/searchresults.html?ss=${encodeURIComponent(
-      destination + ", Egypt"
+      destination + ", Egypt",
     )}&checkin=${checkIn}&checkout=${checkOut}`;
     window.open(bookingUrl, "_blank");
   };
 
   return (
-    <div className=" bg-[#FAF6ED] min-h-screen bg-[#FDFBF7] font-body text-[#211D18] flex flex-col justify-between">
+    <div className=" bg-[#FAF6ED] min-h-dvh bg-[#FDFBF7] font-body text-[#211D18] flex flex-col justify-between">
       {/* CSS لإخفاء أيقونة التقويم الرمادية الافتراضية للـ Browser */}
       <style>{`
         input[type="date"]::-webkit-calendar-picker-indicator {
@@ -56,25 +56,39 @@ export default function Hotels() {
             <span className="rounded-full bg-[#524016] px-5 py-1 text-[11px] font-bold uppercase tracking-wider text-[#FDFBF7]">
               HOTELS
             </span>
-            <span className="hidden text-xs font-bold text-[#211D18]/80 sm:inline">$ USD</span>
+            <span className="hidden text-xs font-bold text-[#211D18]/80 sm:inline">
+              $ USD
+            </span>
           </div>
 
           <div className="flex items-center gap-6 text-xs font-bold uppercase tracking-wider text-[#211D18]/80">
-            <Link to="/about" className="hidden transition-colors hover:text-[#835400] sm:inline">
+            <Link
+              to="/about"
+              className="hidden transition-colors hover:text-[#835400] sm:inline"
+            >
               ABOUT
             </Link>
             {isAuthenticated ? (
-              <Link to="/my-trip" className="flex items-center gap-1.5 text-[#835400] hover:text-[#A48238]">
+              <Link
+                to="/my-trip"
+                className="flex items-center gap-1.5 text-[#835400] hover:text-[#A48238]"
+              >
                 <User className="h-3.5 w-3.5" />
                 <span>{user?.fullName?.split(" ")[0] || "MY TRIP"}</span>
               </Link>
             ) : (
-              <Link to="/login" className="flex items-center gap-1.5 transition-colors hover:text-[#835400]">
+              <Link
+                to="/login"
+                className="flex items-center gap-1.5 transition-colors hover:text-[#835400]"
+              >
                 <User className="h-3.5 w-3.5" />
                 <span>SIGN UP/LOGIN</span>
               </Link>
             )}
-            <button type="button" className="flex items-center gap-1 transition-colors hover:text-[#835400]">
+            <button
+              type="button"
+              className="flex items-center gap-1 transition-colors hover:text-[#835400]"
+            >
               <Globe className="h-3.5 w-3.5" />
               <span>Languages</span>
             </button>
@@ -132,7 +146,7 @@ export default function Hotels() {
                   <label className="block text-[10px] font-semibold text-[#8A7A55] mb-1">
                     Check-in
                   </label>
-                  <div 
+                  <div
                     onClick={() => openDatePicker(checkInRef)}
                     className="relative flex items-center justify-between rounded-xl border border-[#DCD3BE] bg-[#E3DAC2]/70 px-3.5 py-2.5 cursor-pointer"
                   >
@@ -152,7 +166,7 @@ export default function Hotels() {
                   <label className="block text-[10px] font-semibold text-[#8A7A55] mb-1">
                     Check-out
                   </label>
-                  <div 
+                  <div
                     onClick={() => openDatePicker(checkOutRef)}
                     className="relative flex items-center justify-between rounded-xl border border-[#DCD3BE] bg-[#E3DAC2]/70 px-3.5 py-2.5 cursor-pointer"
                   >

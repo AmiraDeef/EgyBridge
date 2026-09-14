@@ -38,7 +38,7 @@ export default function Flights() {
   };
 
   return (
-    <div className="min-h-screen bg-[#FDFBF7] font-body text-[#211D18] flex flex-col justify-between bg-[#FAF6ED]">
+    <div className="min-h-dvh bg-[#FDFBF7] font-body text-[#211D18] flex flex-col justify-between bg-[#FAF6ED]">
       {/* Top pill nav */}
       <header className="mx-auto w-full max-w-6xl px-6 pt-6 sm:px-10">
         <nav className="flex items-center justify-between rounded-full border border-[#524016]/30 bg-[#FDFBF7] px-6 py-2.5 shadow-sm">

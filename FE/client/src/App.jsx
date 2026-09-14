@@ -45,7 +45,7 @@ import { useAuth } from "./context/AuthContext";
 function Currency() {
   const [amount, setAmount] = useState(100);
   return (
-    <div className="min-h-screen bg-white font-body">
+    <div className="min-h-dvh bg-white font-body">
       <SiteNavbar />
       <main className="mx-auto max-w-xl px-6 py-10 text-center">
         <h1 className="text-3xl font-bold text-black">Currency Converter</h1>
@@ -71,7 +71,7 @@ function Currency() {
 
 function PaymentInfo() {
   return (
-    <div className="min-h-screen bg-white font-body">
+    <div className="min-h-dvh bg-white font-body">
       <SiteNavbar />
       <main className="mx-auto max-w-4xl px-6 py-10">
         <h1 className="text-3xl font-bold text-black">

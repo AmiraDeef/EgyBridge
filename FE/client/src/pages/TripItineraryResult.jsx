@@ -1,16 +1,16 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { 
-  Calendar, 
-  Wallet, 
-  Pencil, 
-  Bookmark, 
-  Utensils, 
-  Car, 
-  Download, 
+import {
+  Calendar,
+  Wallet,
+  Pencil,
+  Bookmark,
+  Utensils,
+  Car,
+  Download,
   ArrowRight,
   Landmark,
-  Loader2
+  Loader2,
 } from "lucide-react";
 
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
@@ -56,7 +56,7 @@ export default function TripItineraryResult() {
   // دالة لتوليد وصف ديناميكي بناءً على المدينة والنشاط
   const DynamicDescription = ({ item, cityName }) => {
     const rawDesc = item.description || item.details || "";
-    
+
     // إذا كان هناك وصف حقيقي من الـ DB ولا يحتوي على "Auto-generated"
     if (rawDesc && !rawDesc.toLowerCase().includes("auto-generated")) {
       return <p className="text-[#736033] leading-relaxed">{rawDesc}</p>;
@@ -67,15 +67,24 @@ export default function TripItineraryResult() {
     let text = `Enjoy a curated day exploring the best attractions and local culture in ${cityName || "Egypt"}.`;
 
     if (name.includes("alexandria")) {
-      text = "Discover Mediterranean heritage, iconic seaside views, and vibrant coastal culture.";
+      text =
+        "Discover Mediterranean heritage, iconic seaside views, and vibrant coastal culture.";
     } else if (name.includes("luxor")) {
-      text = "Immerse yourself in ancient Egyptian history, world-class temples, and historic monuments.";
-    } else if (name.includes("sinai") || name.includes("south_sinai") || name.includes("dahab")) {
-      text = "Unwind along Red Sea beaches, world-class diving spots, and tranquil desert landscapes.";
+      text =
+        "Immerse yourself in ancient Egyptian history, world-class temples, and historic monuments.";
+    } else if (
+      name.includes("sinai") ||
+      name.includes("south_sinai") ||
+      name.includes("dahab")
+    ) {
+      text =
+        "Unwind along Red Sea beaches, world-class diving spots, and tranquil desert landscapes.";
     } else if (name.includes("cairo")) {
-      text = "Explore vibrant bazaars, rich Islamic architecture, and world-famous ancient wonders.";
+      text =
+        "Explore vibrant bazaars, rich Islamic architecture, and world-famous ancient wonders.";
     } else if (name.includes("aswan")) {
-      text = "Relax by the scenic Nile, explore colorful Nubian villages, and serene island temples.";
+      text =
+        "Relax by the scenic Nile, explore colorful Nubian villages, and serene island temples.";
     }
 
     return <p className="text-[#736033] leading-relaxed">{text}</p>;
@@ -97,18 +106,20 @@ export default function TripItineraryResult() {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-[#FAF8F5] flex flex-col items-center justify-center gap-3">
+      <div className="min-h-dvh bg-[#FAF8F5] flex flex-col items-center justify-center gap-3">
         <Loader2 className="h-8 w-8 animate-spin text-[#B58E2A]" />
-        <p className="text-xs font-bold text-[#8C753D]">Loading your trip itinerary...</p>
+        <p className="text-xs font-bold text-[#8C753D]">
+          Loading your trip itinerary...
+        </p>
       </div>
     );
   }
 
   if (!tripData) {
     return (
-      <div className="min-h-screen bg-[#FAF8F5] text-center pt-20">
+      <div className="min-h-dvh bg-[#FAF8F5] text-center pt-20">
         <p className="text-sm font-bold text-[#3D3011]">No trip plan found.</p>
-        <button 
+        <button
           onClick={() => navigate("/plan/traveler")}
           className="mt-4 rounded-xl bg-[#B58E2A] px-5 py-2 text-xs font-bold text-white"
         >
@@ -120,12 +131,13 @@ export default function TripItineraryResult() {
 
   const daysList = tripData.itinerary || tripData.days || [];
   const mapLocations = tripData.mapLocations || [];
-  const defaultCenter = mapLocations.length > 0 
-    ? [mapLocations[0].lat, mapLocations[0].lng] 
-    : [30.0444, 31.2357];
+  const defaultCenter =
+    mapLocations.length > 0
+      ? [mapLocations[0].lat, mapLocations[0].lng]
+      : [30.0444, 31.2357];
 
   return (
-    <div className="min-h-screen bg-[#FAF6ED] font-sans text-[#4A3B18] pb-24">
+    <div className="min-h-dvh bg-[#FAF6ED] font-sans text-[#4A3B18] pb-24">
       <SiteNavbar />
 
       <main className="mx-auto max-w-6xl px-6 pt-8 bg-[#FAF6ED]">
@@ -168,14 +180,13 @@ export default function TripItineraryResult() {
 
         {/* Grid Container */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-          
           {/* Left Side: Map & Overview */}
           <div className="lg:col-span-4 space-y-6">
             <div className="border border-[#EAE2CE] rounded-xl overflow-hidden shadow-sm bg-white p-1">
               <div className="w-full h-64 rounded-lg overflow-hidden relative z-0">
-                <MapContainer 
-                  center={defaultCenter} 
-                  zoom={7} 
+                <MapContainer
+                  center={defaultCenter}
+                  zoom={7}
                   scrollWheelZoom={false}
                   className="w-full h-full"
                 >
@@ -184,7 +195,11 @@ export default function TripItineraryResult() {
                     url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                   />
                   {mapLocations.map((loc, idx) => (
-                    <Marker key={loc.id || idx} position={[loc.lat, loc.lng]} icon={customIcon}>
+                    <Marker
+                      key={loc.id || idx}
+                      position={[loc.lat, loc.lng]}
+                      icon={customIcon}
+                    >
                       <Popup>{loc.title || loc.name}</Popup>
                     </Marker>
                   ))}
@@ -199,11 +214,15 @@ export default function TripItineraryResult() {
               </h3>
               <div className="flex justify-between text-xs py-1">
                 <span className="text-[#8C753D]">Total Days</span>
-                <span className="font-semibold text-[#3D3011]">{tripData.duration} Days</span>
+                <span className="font-semibold text-[#3D3011]">
+                  {tripData.duration} Days
+                </span>
               </div>
               <div className="flex justify-between text-xs py-1 border-t border-[#FAF6EE]">
                 <span className="text-[#8C753D]">Pace</span>
-                <span className="font-semibold text-[#3D3011] capitalize">{tripData.pace || "Balanced"}</span>
+                <span className="font-semibold text-[#3D3011] capitalize">
+                  {tripData.pace || "Balanced"}
+                </span>
               </div>
               <div className="flex justify-between text-xs py-1 border-t border-[#FAF6EE]">
                 <span className="text-[#8C753D]">Destinations</span>
@@ -218,8 +237,15 @@ export default function TripItineraryResult() {
           <div className="lg:col-span-8 space-y-6">
             {daysList.length > 0 ? (
               daysList.map((day, dIdx) => {
-                const activities = day.activities || day.items || day.places || [];
-                const currentCity = day.city || day.destination || tripData.destinations?.[dIdx % (tripData.destinations?.length || 1)] || "Egypt";
+                const activities =
+                  day.activities || day.items || day.places || [];
+                const currentCity =
+                  day.city ||
+                  day.destination ||
+                  tripData.destinations?.[
+                    dIdx % (tripData.destinations?.length || 1)
+                  ] ||
+                  "Egypt";
 
                 return (
                   <div
@@ -238,20 +264,32 @@ export default function TripItineraryResult() {
                     <div className="p-5 space-y-6">
                       {activities.length > 0 ? (
                         activities.map((item, idx) => {
-                          const ItemIcon = getIconForType(item.type || item.category);
+                          const ItemIcon = getIconForType(
+                            item.type || item.category,
+                          );
                           return (
-                            <div key={idx} className="flex items-start gap-4 text-xs">
+                            <div
+                              key={idx}
+                              className="flex items-start gap-4 text-xs"
+                            >
                               <div className="p-2 rounded-lg bg-[#FAF6EE] border border-[#EAE2CE] text-[#B58E2A] flex-shrink-0">
                                 <ItemIcon className="h-4 w-4" />
                               </div>
                               <div className="flex-grow space-y-1">
                                 <div className="text-[11px] font-bold text-[#8C753D]">
-                                  {item.time || "Schedule"} — {item.type || "Activity"}
+                                  {item.time || "Schedule"} —{" "}
+                                  {item.type || "Activity"}
                                 </div>
                                 <h4 className="text-sm font-bold text-[#3D3011] capitalize">
-                                  {item.title || item.name || item.placeName || `Explore ${currentCity}`}
+                                  {item.title ||
+                                    item.name ||
+                                    item.placeName ||
+                                    `Explore ${currentCity}`}
                                 </h4>
-                                <DynamicDescription item={item} cityName={currentCity} />
+                                <DynamicDescription
+                                  item={item}
+                                  cityName={currentCity}
+                                />
                               </div>
                             </div>
                           );
@@ -268,7 +306,10 @@ export default function TripItineraryResult() {
                             <h4 className="text-sm font-bold text-[#3D3011] capitalize">
                               Explore {currentCity}
                             </h4>
-                            <DynamicDescription item={{}} cityName={currentCity} />
+                            <DynamicDescription
+                              item={{}}
+                              cityName={currentCity}
+                            />
                           </div>
                         </div>
                       )}
@@ -282,7 +323,6 @@ export default function TripItineraryResult() {
               </div>
             )}
           </div>
-
         </div>
 
         {/* Footer Actions */}
@@ -295,7 +335,7 @@ export default function TripItineraryResult() {
             <Download className="h-4 w-4" />
             <span>Download Offline</span>
           </button>
-          
+
           <button
             type="button"
             onClick={() => navigate("/my-trip")}

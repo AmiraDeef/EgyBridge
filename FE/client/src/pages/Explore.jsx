@@ -179,7 +179,7 @@ export default function Explore() {
   };
 
   return (
-    <div className="min-h-screen bg-[#FAF6ED] font-body text-[#3B2F1E]">
+    <div className="min-h-dvh bg-[#FAF6ED] font-body text-[#3B2F1E]">
       <SiteNavbar />
 
       <main className="mx-auto max-w-[1240px] px-4 pb-24 sm:px-8">
@@ -331,7 +331,7 @@ export default function Explore() {
                         >
                           {page}
                         </button>
-                      )
+                      ),
                     )}
 
                     <button

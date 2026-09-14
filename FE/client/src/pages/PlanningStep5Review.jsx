@@ -102,7 +102,7 @@ export default function PlanningStep5Review() {
   ];
 
   return (
-    <div className="min-h-screen bg-[#FAF6ED] font-sans text-[#4A3B18] pb-24">
+    <div className="min-h-dvh bg-[#FAF6ED] font-sans text-[#4A3B18] pb-24">
       <SiteNavbar />
 
       <main className="mx-auto max-w-4xl px-6 pt-4">
