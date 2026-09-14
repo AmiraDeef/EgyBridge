@@ -22,7 +22,7 @@ import PlanningStep1 from "./pages/PlanningStep1";
 import PlanningStep2Budget from "./pages/PlanningStep2Budget";
 import PlanningStep3Places from "./pages/PlanningStep3Places";
 import PlanningStep4Preferences from "./pages/PlanningStep4Preferences";
-import PlanningStep5Review from "./pages/PlanningStep5Review"; 
+import PlanningStep5Review from "./pages/PlanningStep5Review";
 import Visa from "./pages/Visa.jsx";
 import Services from "./pages/Services";
 import Flights from "./pages/Flights";
@@ -164,7 +164,7 @@ export default function App() {
   };
 
   return (
-    <div className="relative min-h-screen">
+    <div className="relative min-h-dvh w-full max-w-full overflow-x-hidden">
       <PlanningProvider>
         <Routes>
           <Route path="/" element={<Home />} />
@@ -233,7 +233,10 @@ export default function App() {
             path="/offline-maps"
             element={<ComingSoon title="Offline Maps" />}
           />
-          <Route path="/about" element={<ComingSoon title="About EGI RISE" />} />
+          <Route
+            path="/about"
+            element={<ComingSoon title="About EGI RISE" />}
+          />
 
           {/* MyTrip Dashboard */}
           <Route

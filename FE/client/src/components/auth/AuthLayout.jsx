@@ -12,14 +12,14 @@ export default function AuthLayout({ children }) {
   const currentImage = isRegister ? imgRE : LOGIN_BG;
 
   return (
-    <div className="flex h-screen w-full overflow-hidden bg-sand font-body">
+    <div className="flex h-dvh w-full min-w-0 overflow-hidden bg-sand font-body">
       {/* Left showcase panel */}
-      <div className="relative hidden w-[45%] overflow-hidden bg-charcoal-deep lg:block">
+      <div className="relative hidden w-[45%] min-w-0 overflow-hidden bg-charcoal-deep lg:block">
         <ShowcaseArt image={currentImage} />
       </div>
 
-      <div className="flex h-full w-full flex-1 items-center justify-center overflow-y-auto px-4 py-4 sm:px-8 lg:w-[55%] lg:px-12">
-        <div className="my-auto w-full max-w-[400px] rounded-2xl border border-sand-line bg-white p-5 shadow-card sm:p-6 lg:border-0 lg:bg-transparent lg:p-0 lg:shadow-none">
+      <div className="flex h-full w-full min-w-0 flex-1 items-center justify-center overflow-y-auto px-4 py-4 sm:px-8 lg:w-[55%] lg:px-12">
+        <div className="my-auto w-full max-w-[400px] min-w-0 rounded-2xl border border-sand-line bg-white p-5 shadow-card sm:p-6 lg:border-0 lg:bg-transparent lg:p-0 lg:shadow-none">
           {children}
         </div>
       </div>

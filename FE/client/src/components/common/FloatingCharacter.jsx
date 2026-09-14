@@ -9,7 +9,7 @@ import {
   Sparkles,
   MapPin,
   FileText,
-  Bot
+  Bot,
 } from "lucide-react";
 import characterImg from "../../assets/character.png";
 
@@ -35,10 +35,10 @@ export default function FloatingCharacter() {
   }
 
   return (
-    <div className="fixed bottom-5 right-5 z-50 flex flex-col items-end font-body">
+    <div className="fixed bottom-4 right-4 z-50 flex flex-col items-end pb-[env(safe-area-inset-bottom)] font-body sm:bottom-5 sm:right-5">
       {/* Quick Assist Modal / Drawer */}
       {isOpen && (
-        <div className="mb-3 w-80 overflow-hidden rounded-3xl border-2 border-gold/40 bg-cream p-5 shadow-2xl animate-fade-in text-ink">
+        <div className="mb-3 w-[calc(100vw-2rem)] max-w-80 overflow-hidden rounded-3xl border-2 border-gold/40 bg-cream p-5 shadow-2xl animate-fade-in text-ink">
           <div className="flex items-center justify-between border-b border-line pb-3">
             <div className="flex items-center gap-2">
               <div className="flex h-7 w-7 items-center justify-center rounded-full bg-gold/15 text-gold-dark font-bold text-xs">
@@ -48,7 +48,9 @@ export default function FloatingCharacter() {
                 <h4 className="font-display text-sm font-bold text-ink">
                   EGI RISE Guide
                 </h4>
-                <p className="text-[10px] text-ink/55">Your Egypt Travel Assistant</p>
+                <p className="text-[10px] text-ink/55">
+                  Your Egypt Travel Assistant
+                </p>
               </div>
             </div>
             <button
@@ -62,7 +64,8 @@ export default function FloatingCharacter() {
 
           <div className="mt-3 space-y-2 text-xs">
             <p className="text-xs text-ink/75 leading-relaxed">
-              Hello traveler! Need assistance with your Egypt itinerary, bookings, or local travel tips?
+              Hello traveler! Need assistance with your Egypt itinerary,
+              bookings, or local travel tips?
             </p>
 
             <div className="mt-3 grid grid-cols-2 gap-2 pt-1">

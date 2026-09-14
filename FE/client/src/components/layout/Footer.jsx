@@ -8,7 +8,6 @@ import {
   Linkedin,
   Mail,
   Music2,
- 
 } from "lucide-react";
 import { FaSnapchatGhost } from "react-icons/fa";
 
@@ -66,10 +65,10 @@ const SOCIALS = [
 
 export default function Footer() {
   return (
-    <footer className="bg-ink-soft px-6 pb-6 pt-14 text-cream/80 sm:px-10">
-      <div className="mx-auto grid max-w-6xl grid-cols-2 gap-10 sm:grid-cols-3 lg:grid-cols-5">
+    <footer className="w-full max-w-full overflow-x-hidden bg-ink-soft px-6 pb-[env(safe-area-inset-bottom)] pt-14 text-cream/80 sm:px-10">
+      <div className="mx-auto grid w-full max-w-6xl min-w-0 grid-cols-1 gap-6 sm:grid-cols-2 sm:gap-8 lg:grid-cols-5">
         {/* Brand block */}
-        <div className="col-span-2 sm:col-span-3 lg:col-span-1">
+        <div className="col-span-1 min-w-0 sm:col-span-2 lg:col-span-1">
           <div className="flex items-center gap-2">
             <span className="flex h-6 w-6 items-center justify-center rounded-full border border-gold text-[11px] font-semibold text-gold">
               E
@@ -86,7 +85,7 @@ export default function Footer() {
           <p className="mt-4 max-w-[220px] text-sm leading-relaxed text-cream/50">
             Explore Egypt with a plan that fits your journey.
           </p>
-          <div className="mt-4 flex gap-2">
+          <div className="mt-4 flex flex-wrap gap-2">
             {SOCIALS.map(({ icon: Icon, label, path }) => (
               <a
                 key={label}
@@ -103,7 +102,7 @@ export default function Footer() {
         </div>
 
         {COLUMNS.map((col) => (
-          <div key={col.title}>
+          <div key={col.title} className="min-w-0">
             <p className="mb-4 text-sm font-semibold text-cream">{col.title}</p>
             <ul className="space-y-2.5">
               {col.links.map((link) => (
