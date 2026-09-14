@@ -1,6 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Facebook, Instagram, Twitter, Youtube, AlertTriangle, Globe } from "lucide-react";
+import {
+  AlertTriangle,
+  Facebook,
+  Globe,
+  Instagram,
+  Linkedin,
+  Mail,
+  Music2,
+} from "lucide-react";
 
 const COLUMNS = [
   {
@@ -22,10 +30,31 @@ const COLUMNS = [
 ];
 
 const SOCIALS = [
-  { icon: Facebook, label: "Facebook" },
-  { icon: Instagram, label: "Instagram" },
-  { icon: Twitter, label: "X" },
-  { icon: Youtube, label: "YouTube" },
+  {
+    icon: Facebook,
+    label: "Facebook",
+    path: "https://www.facebook.com/profile.php?id=61563981225135",
+  },
+  {
+    icon: Instagram,
+    label: "Instagram",
+    path: "https://www.instagram.com/egirises_egypt_rises/",
+  },
+  {
+    icon: Music2,
+    label: "TikTok",
+    path: "https://www.tiktok.com/@egirises_egyptrises?_r=1&_t=ZS-99iqMdBmg6e",
+  },
+  {
+    icon: Linkedin,
+    label: "LinkedIn",
+    path: "https://www.linkedin.com/company/egirises/",
+  },
+  {
+    icon: Mail,
+    label: "Gmail",
+    path: "mailto:egirises@gmail.com",
+  },
 ];
 
 export default function Footer() {
@@ -39,18 +68,24 @@ export default function Footer() {
               E
             </span>
             <div>
-              <p className="font-display text-sm font-semibold text-cream">EGYPT</p>
-              <p className="text-[10px] uppercase tracking-wide text-cream/40">Travel Companion</p>
+              <p className="font-display text-sm font-semibold text-cream">
+                EGYPT
+              </p>
+              <p className="text-[10px] uppercase tracking-wide text-cream/40">
+                Travel Companion
+              </p>
             </div>
           </div>
           <p className="mt-4 max-w-[220px] text-sm leading-relaxed text-cream/50">
             Explore Egypt with a plan that fits your journey.
           </p>
           <div className="mt-4 flex gap-2">
-            {SOCIALS.map(({ icon: Icon, label }) => (
+            {SOCIALS.map(({ icon: Icon, label, path }) => (
               <a
                 key={label}
-                href="#"
+                href={path}
+                target={path.startsWith("http") ? "_blank" : undefined}
+                rel={path.startsWith("http") ? "noreferrer" : undefined}
                 aria-label={label}
                 className="flex h-8 w-8 items-center justify-center rounded-full border border-cream/15 text-cream/60 transition-colors hover:border-gold hover:text-gold"
               >
@@ -66,7 +101,10 @@ export default function Footer() {
             <ul className="space-y-2.5">
               {col.links.map((link) => (
                 <li key={link}>
-                  <a href="#" className="text-sm text-cream/50 transition-colors hover:text-gold">
+                  <a
+                    href="#"
+                    className="text-sm text-cream/50 transition-colors hover:text-gold"
+                  >
                     {link}
                   </a>
                 </li>
@@ -98,7 +136,10 @@ export default function Footer() {
 
       <div className="mx-auto mt-10 flex max-w-6xl flex-col items-center justify-between gap-3 border-t border-cream/10 pt-6 text-xs text-cream/35 sm:flex-row">
         <p>© 2026 Egypt Travel Companion. All rights reserved.</p>
-        <button type="button" className="flex items-center gap-1.5 hover:text-cream/60">
+        <button
+          type="button"
+          className="flex items-center gap-1.5 hover:text-cream/60"
+        >
           <Globe className="h-3.5 w-3.5" />
           English
         </button>

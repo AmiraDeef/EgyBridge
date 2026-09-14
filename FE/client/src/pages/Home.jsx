@@ -24,7 +24,7 @@ import pyramidsHero from "../assets/hero2.png";
 import characterImg from "../assets/character.png";
 
 const QUICK_ACTIONS = [
-  { label: "sehort dina", iconColor: "#001E4F", icon: Briefcase, to: "/plan" },
+  { label: "Calender", iconColor: "#001E4F", icon: Briefcase, to: "/plan" },
   { label: "Explore", iconColor: "#B27F0B", icon: Compass, to: "/explore" },
   {
     label: "Emergency",

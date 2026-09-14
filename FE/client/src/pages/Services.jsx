@@ -19,7 +19,7 @@ import Footer from "../components/layout/Footer";
 const SERVICE_CARDS = [
   {
     key: "flights",
-    label: "Fights", // مطابقة للتصميم
+    label: "Flights", 
     icon: Plane,
     description: "Book international and domestic flights with our premium airline partners.",
     to: "/services/flights",
@@ -50,7 +50,7 @@ const SERVICE_CARDS = [
 const SERVICE_CARDS_ROW2 = [
   {
     key: "sim",
-    label: "Sim",
+    label: "SIM",
     icon: CreditCard,
     description: "Purchase local eSIMs instantly for uninterrupted data across Egypt.",
     to: "/sim",
