@@ -8,8 +8,9 @@ import {
   Linkedin,
   Mail,
   Music2,
-  Camera,
+ 
 } from "lucide-react";
+import { FaSnapchatGhost } from "react-icons/fa";
 
 const COLUMNS = [
   {
@@ -47,7 +48,7 @@ const SOCIALS = [
     path: "https://www.tiktok.com/@egirises_egyptrises?_r=1&_t=ZS-99iqMdBmg6e",
   },
   {
-    icon: Camera,
+    icon: FaSnapchatGhost,
     label: "Snapchat",
     path: "https://snapchat.com/t/n5zhibr4",
   },
