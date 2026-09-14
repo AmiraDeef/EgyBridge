@@ -8,6 +8,7 @@ import {
   Linkedin,
   Mail,
   Music2,
+  Camera,
 } from "lucide-react";
 
 const COLUMNS = [
@@ -44,6 +45,11 @@ const SOCIALS = [
     icon: Music2,
     label: "TikTok",
     path: "https://www.tiktok.com/@egirises_egyptrises?_r=1&_t=ZS-99iqMdBmg6e",
+  },
+  {
+    icon: Camera,
+    label: "Snapchat",
+    path: "https://snapchat.com/t/n5zhibr4",
   },
   {
     icon: Linkedin,
